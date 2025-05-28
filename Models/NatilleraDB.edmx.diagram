@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="380c820c63cd454bb277afee0f7313bd" Name="Diagram1">
+        <EntityTypeShape EntityType="NatilleraDBModel.AlquileresLugar" Width="1.5" PointX="15" PointY="24.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.Ciudade" Width="1.5" PointX="5.25" PointY="21" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.Cliente" Width="1.5" PointX="7.5" PointY="17.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.ContactosProveedor" Width="1.5" PointX="14.75" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.CuentasAhorro" Width="1.5" PointX="9.75" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.Departamento" Width="1.5" PointX="3" PointY="21.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.DocumentosCliente" Width="1.5" PointX="12.75" PointY="19" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.Evento" Width="1.5" PointX="12.75" PointY="22.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.EventosProveedore" Width="1.5" PointX="18" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.GastosEvento" Width="1.5" PointX="17" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.Liquidacione" Width="1.5" PointX="9.75" PointY="27" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.Lugare" Width="1.5" PointX="7.5" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.MetodosPago" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.PagosPrestamo" Width="1.5" PointX="12" PointY="30.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.Pais" Width="1.5" PointX="0.75" PointY="21.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.ParticipacionEvento" Width="1.5" PointX="18" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.Prestamo" Width="1.5" PointX="9.75" PointY="30.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.Proveedore" Width="1.5" PointX="12.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.sysdiagram" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.TiposCuentaAhorro" Width="1.5" PointX="7.5" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.TiposDocumentoLegal" Width="1.5" PointX="10.5" PointY="23.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.TiposServicioProveedor" Width="1.5" PointX="10.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.TiposTransaccion" Width="1.5" PointX="12.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.TransaccionesAhorro" Width="1.5" PointX="15" PointY="18.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="NatilleraDBModel.UsuariosSistema" Width="1.5" PointX="9.75" PointY="34.375" IsExpanded="true" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Alquilere__Codig__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Alquilere__Codig__7A672E12" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Ciudades__Codigo__403A8C7D" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Clientes__Codigo__45F365D3" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Lugares__CodigoC__71D1E811" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Proveedor__Codig__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__CuentasAh__Docum__59063A47" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Documento__Docum__4E88ABD4" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Eventos__Documen__76969D2E" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Liquidaci__Docum__6E01572D" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Participa__Docum__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Prestamos__Docum__66603565" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__UsuariosS__Docum__2180FB33" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Contactos__Docum__0C85DE4D" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__CuentasAh__Codig__59FA5E80" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Transacci__Codig__619B8048" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Departame__Codig__3C69FB99" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Documento__Codig__4F7CD00D" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Eventos__CodigoL__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__EventosPr__Codig__10566F31" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__GastosEve__Codig__18EBB532" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Participa__Codig__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__EventosPr__Docum__114A936A" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__GastosEve__Docum__19DFD96B" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__PagosPres__Codig__6A30C649" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Proveedor__Codig__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="NatilleraDBModel.FK__Transacci__Codig__628FA481" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

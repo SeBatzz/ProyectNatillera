@@ -1,0 +1,1882 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="NatilleraDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AlquileresLugar">
+          <Key>
+            <PropertyRef Name="CodigoAlquiler" />
+          </Key>
+          <Property Name="CodigoAlquiler" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoLugar" Type="int" Nullable="false" />
+          <Property Name="CodigoEvento" Type="int" />
+          <Property Name="FechaInicioAlquiler" Type="datetime" Nullable="false" />
+          <Property Name="FechaFinAlquiler" Type="datetime" Nullable="false" />
+          <Property Name="CostoTotalAlquiler" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="EstadoAlquiler" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Ciudades">
+          <Key>
+            <PropertyRef Name="CodigoCiudad" />
+          </Key>
+          <Property Name="CodigoCiudad" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreCiudad" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="CodigoDepartamento" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Clientes">
+          <Key>
+            <PropertyRef Name="DocumentoCliente" />
+          </Key>
+          <Property Name="DocumentoCliente" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="TipoIdentificacion" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="PrimerApellido" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="SegundoApellido" Type="varchar" MaxLength="50" />
+          <Property Name="Direccion" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="CodigoCiudad" Type="int" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="date" />
+          <Property Name="Email" Type="varchar" MaxLength="200" />
+          <Property Name="TelefonoPrincipal" Type="varchar" MaxLength="20" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ContactosProveedor">
+          <Key>
+            <PropertyRef Name="CodigoContacto" />
+          </Key>
+          <Property Name="CodigoContacto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentoProveedor" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Nombres" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Apellidos" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CuentasAhorro">
+          <Key>
+            <PropertyRef Name="CodigoCuenta" />
+          </Key>
+          <Property Name="CodigoCuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentoCliente" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NumeroCuenta" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="CodigoTipoCuenta" Type="int" Nullable="false" />
+          <Property Name="FechaApertura" Type="datetime" Nullable="false" />
+          <Property Name="Saldo" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Estado" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Departamentos">
+          <Key>
+            <PropertyRef Name="CodigoDepartamento" />
+          </Key>
+          <Property Name="CodigoDepartamento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreDepartamento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+          <Property Name="CodigoPais" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DocumentosCliente">
+          <Key>
+            <PropertyRef Name="CodigoDocumento" />
+          </Key>
+          <Property Name="CodigoDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentoCliente" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CodigoTipoDocumento" Type="int" Nullable="false" />
+          <Property Name="NombreArchivo" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="FechaCarga" Type="datetime" Nullable="false" />
+          <Property Name="Vigente" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Eventos">
+          <Key>
+            <PropertyRef Name="CodigoEvento" />
+          </Key>
+          <Property Name="CodigoEvento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreEvento" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="FechaInicio" Type="datetime" Nullable="false" />
+          <Property Name="FechaFin" Type="datetime" Nullable="false" />
+          <Property Name="CodigoLugar" Type="int" />
+          <Property Name="PresupuestoEstimado" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="EstadoEvento" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DocumentoOrganizadorCliente" Type="varchar" MaxLength="20" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EventosProveedores">
+          <Key>
+            <PropertyRef Name="CodigoRelacion" />
+          </Key>
+          <Property Name="CodigoRelacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoEvento" Type="int" Nullable="false" />
+          <Property Name="DocumentoProveedor" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CostoServicioEstimado" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="FechaContratacion" Type="datetime" Nullable="false" />
+          <Property Name="EstadoContrato" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GastosEvento">
+          <Key>
+            <PropertyRef Name="CodigoGasto" />
+          </Key>
+          <Property Name="CodigoGasto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoEvento" Type="int" Nullable="false" />
+          <Property Name="ConceptoGasto" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="MontoGasto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FechaGasto" Type="datetime" Nullable="false" />
+          <Property Name="DocumentoProveedor" Type="varchar" MaxLength="20" />
+          <Property Name="MetodoPago" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Liquidaciones">
+          <Key>
+            <PropertyRef Name="CodigoLiquidacion" />
+          </Key>
+          <Property Name="CodigoLiquidacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentoCliente" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FechaLiquidacion" Type="datetime" Nullable="false" />
+          <Property Name="ValorTotalAhorros" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ValorTotalPrestamosPendientes" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MontoFinalLiquidacion" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="EstadoLiquidacion" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Lugares">
+          <Key>
+            <PropertyRef Name="CodigoLugar" />
+          </Key>
+          <Property Name="CodigoLugar" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreLugar" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CodigoCiudad" Type="int" Nullable="false" />
+          <Property Name="CapacidadPersonas" Type="int" />
+          <Property Name="CostoPorDia" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="ContactoPrincipal" Type="varchar" MaxLength="100" />
+          <Property Name="TelefonoContacto" Type="varchar" MaxLength="20" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="MetodosPago">
+          <Key>
+            <PropertyRef Name="CodigoMetodoPago" />
+          </Key>
+          <Property Name="CodigoMetodoPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreMetodo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PagosPrestamo">
+          <Key>
+            <PropertyRef Name="CodigoPago" />
+          </Key>
+          <Property Name="CodigoPago" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoPrestamo" Type="int" Nullable="false" />
+          <Property Name="MontoPago" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FechaPago" Type="datetime" Nullable="false" />
+          <Property Name="CapitalPagado" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="InteresesPagados" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="MultasPagadas" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SaldoPendiente" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="Paises">
+          <Key>
+            <PropertyRef Name="CodigoPais" />
+          </Key>
+          <Property Name="CodigoPais" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombrePais" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ParticipacionEventos">
+          <Key>
+            <PropertyRef Name="CodigoParticipacion" />
+          </Key>
+          <Property Name="CodigoParticipacion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoEvento" Type="int" Nullable="false" />
+          <Property Name="DocumentoCliente" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="FechaInscripcion" Type="datetime" Nullable="false" />
+          <Property Name="MontoPagadoInscripcion" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="EstadoParticipacion" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Prestamos">
+          <Key>
+            <PropertyRef Name="CodigoPrestamo" />
+          </Key>
+          <Property Name="CodigoPrestamo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentoCliente" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="MontoSolicitado" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="MontoAprobado" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="TasaInteres" Type="decimal" Precision="5" Scale="4" Nullable="false" />
+          <Property Name="PlazoMeses" Type="int" Nullable="false" />
+          <Property Name="FechaSolicitud" Type="datetime" Nullable="false" />
+          <Property Name="FechaAprobacion" Type="datetime" />
+          <Property Name="FechaDesembolso" Type="datetime" />
+          <Property Name="EstadoPrestamo" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Proveedores">
+          <Key>
+            <PropertyRef Name="DocumentoProveedor" />
+          </Key>
+          <Property Name="DocumentoProveedor" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NombreCompania" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Direccion" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="CodigoCiudad" Type="int" Nullable="false" />
+          <Property Name="Telefono" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
+          <Property Name="CodigoTipoServicio" Type="int" Nullable="false" />
+          <Property Name="FechaRegistro" Type="datetime" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TiposCuentaAhorro">
+          <Key>
+            <PropertyRef Name="CodigoTipoCuenta" />
+          </Key>
+          <Property Name="CodigoTipoCuenta" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreTipo" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TiposDocumentoLegal">
+          <Key>
+            <PropertyRef Name="CodigoTipoDocumento" />
+          </Key>
+          <Property Name="CodigoTipoDocumento" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreTipoDocumento" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TiposServicioProveedor">
+          <Key>
+            <PropertyRef Name="CodigoTipoServicio" />
+          </Key>
+          <Property Name="CodigoTipoServicio" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreTipo" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TiposTransaccion">
+          <Key>
+            <PropertyRef Name="CodigoTipoTransaccion" />
+          </Key>
+          <Property Name="CodigoTipoTransaccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NombreTransaccion" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Naturaleza" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TransaccionesAhorro">
+          <Key>
+            <PropertyRef Name="CodigoTransaccion" />
+          </Key>
+          <Property Name="CodigoTransaccion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CodigoCuenta" Type="int" Nullable="false" />
+          <Property Name="CodigoTipoTransaccion" Type="int" Nullable="false" />
+          <Property Name="Monto" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FechaTransaccion" Type="datetime" Nullable="false" />
+          <Property Name="SaldoAnterior" Type="decimal" Precision="18" Scale="2" />
+          <Property Name="SaldoPosterior" Type="decimal" Precision="18" Scale="2" />
+        </EntityType>
+        <EntityType Name="UsuariosSistema">
+          <Key>
+            <PropertyRef Name="CodigoUsuario" />
+          </Key>
+          <Property Name="CodigoUsuario" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DocumentoCliente" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="NombreUsuario" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ClaveHash" Type="nvarchar" MaxLength="255" Nullable="false" />
+          <Property Name="Salt" Type="nvarchar" MaxLength="255" />
+          <Property Name="FechaCreacion" Type="datetime" Nullable="false" />
+          <Property Name="Activo" Type="bit" Nullable="false" />
+        </EntityType>
+        <Association Name="FK__Alquilere__Codig__797309D9">
+          <End Role="Lugares" Type="Self.Lugares" Multiplicity="1" />
+          <End Role="AlquileresLugar" Type="Self.AlquileresLugar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lugares">
+              <PropertyRef Name="CodigoLugar" />
+            </Principal>
+            <Dependent Role="AlquileresLugar">
+              <PropertyRef Name="CodigoLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Alquilere__Codig__7A672E12">
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="0..1" />
+          <End Role="AlquileresLugar" Type="Self.AlquileresLugar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="CodigoEvento" />
+            </Principal>
+            <Dependent Role="AlquileresLugar">
+              <PropertyRef Name="CodigoEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ciudades__Codigo__403A8C7D">
+          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="1" />
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamentos">
+              <PropertyRef Name="CodigoDepartamento" />
+            </Principal>
+            <Dependent Role="Ciudades">
+              <PropertyRef Name="CodigoDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clientes__Codigo__45F365D3">
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="CodigoCiudad" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="CodigoCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contactos__Docum__0C85DE4D">
+          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="1" />
+          <End Role="ContactosProveedor" Type="Self.ContactosProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="DocumentoProveedor" />
+            </Principal>
+            <Dependent Role="ContactosProveedor">
+              <PropertyRef Name="DocumentoProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasAh__Codig__59FA5E80">
+          <End Role="TiposCuentaAhorro" Type="Self.TiposCuentaAhorro" Multiplicity="1" />
+          <End Role="CuentasAhorro" Type="Self.CuentasAhorro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposCuentaAhorro">
+              <PropertyRef Name="CodigoTipoCuenta" />
+            </Principal>
+            <Dependent Role="CuentasAhorro">
+              <PropertyRef Name="CodigoTipoCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasAh__Docum__59063A47">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="CuentasAhorro" Type="Self.CuentasAhorro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="DocumentoCliente" />
+            </Principal>
+            <Dependent Role="CuentasAhorro">
+              <PropertyRef Name="DocumentoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Departame__Codig__3C69FB99">
+          <End Role="Paises" Type="Self.Paises" Multiplicity="1" />
+          <End Role="Departamentos" Type="Self.Departamentos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="CodigoPais" />
+            </Principal>
+            <Dependent Role="Departamentos">
+              <PropertyRef Name="CodigoPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Documento__Codig__4F7CD00D">
+          <End Role="TiposDocumentoLegal" Type="Self.TiposDocumentoLegal" Multiplicity="1" />
+          <End Role="DocumentosCliente" Type="Self.DocumentosCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposDocumentoLegal">
+              <PropertyRef Name="CodigoTipoDocumento" />
+            </Principal>
+            <Dependent Role="DocumentosCliente">
+              <PropertyRef Name="CodigoTipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Documento__Docum__4E88ABD4">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="DocumentosCliente" Type="Self.DocumentosCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="DocumentoCliente" />
+            </Principal>
+            <Dependent Role="DocumentosCliente">
+              <PropertyRef Name="DocumentoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Eventos__CodigoL__75A278F5">
+          <End Role="Lugares" Type="Self.Lugares" Multiplicity="0..1" />
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lugares">
+              <PropertyRef Name="CodigoLugar" />
+            </Principal>
+            <Dependent Role="Eventos">
+              <PropertyRef Name="CodigoLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Eventos__Documen__76969D2E">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="0..1" />
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="DocumentoCliente" />
+            </Principal>
+            <Dependent Role="Eventos">
+              <PropertyRef Name="DocumentoOrganizadorCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EventosPr__Codig__10566F31">
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="1" />
+          <End Role="EventosProveedores" Type="Self.EventosProveedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="CodigoEvento" />
+            </Principal>
+            <Dependent Role="EventosProveedores">
+              <PropertyRef Name="CodigoEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EventosPr__Docum__114A936A">
+          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="1" />
+          <End Role="EventosProveedores" Type="Self.EventosProveedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="DocumentoProveedor" />
+            </Principal>
+            <Dependent Role="EventosProveedores">
+              <PropertyRef Name="DocumentoProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GastosEve__Codig__18EBB532">
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="1" />
+          <End Role="GastosEvento" Type="Self.GastosEvento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="CodigoEvento" />
+            </Principal>
+            <Dependent Role="GastosEvento">
+              <PropertyRef Name="CodigoEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GastosEve__Docum__19DFD96B">
+          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="0..1" />
+          <End Role="GastosEvento" Type="Self.GastosEvento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="DocumentoProveedor" />
+            </Principal>
+            <Dependent Role="GastosEvento">
+              <PropertyRef Name="DocumentoProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <!--Errors Found During Generation:
+warning 6035: The relationship 'FK__GastosEve__Metod__1AD3FDA4' has columns that are not part of the key of the table on the primary side of the relationship. The relationship was excluded.
+        <Association Name="FK__GastosEve__Metod__1AD3FDA4" />-->
+        <Association Name="FK__Liquidaci__Docum__6E01572D">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="Liquidaciones" Type="Self.Liquidaciones" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="DocumentoCliente" />
+            </Principal>
+            <Dependent Role="Liquidaciones">
+              <PropertyRef Name="DocumentoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lugares__CodigoC__71D1E811">
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="1" />
+          <End Role="Lugares" Type="Self.Lugares" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="CodigoCiudad" />
+            </Principal>
+            <Dependent Role="Lugares">
+              <PropertyRef Name="CodigoCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PagosPres__Codig__6A30C649">
+          <End Role="Prestamos" Type="Self.Prestamos" Multiplicity="1" />
+          <End Role="PagosPrestamo" Type="Self.PagosPrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prestamos">
+              <PropertyRef Name="CodigoPrestamo" />
+            </Principal>
+            <Dependent Role="PagosPrestamo">
+              <PropertyRef Name="CodigoPrestamo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Participa__Codig__7E37BEF6">
+          <End Role="Eventos" Type="Self.Eventos" Multiplicity="1" />
+          <End Role="ParticipacionEventos" Type="Self.ParticipacionEventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="CodigoEvento" />
+            </Principal>
+            <Dependent Role="ParticipacionEventos">
+              <PropertyRef Name="CodigoEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Participa__Docum__7F2BE32F">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="ParticipacionEventos" Type="Self.ParticipacionEventos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="DocumentoCliente" />
+            </Principal>
+            <Dependent Role="ParticipacionEventos">
+              <PropertyRef Name="DocumentoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Prestamos__Docum__66603565">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="Prestamos" Type="Self.Prestamos" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="DocumentoCliente" />
+            </Principal>
+            <Dependent Role="Prestamos">
+              <PropertyRef Name="DocumentoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proveedor__Codig__08B54D69">
+          <End Role="Ciudades" Type="Self.Ciudades" Multiplicity="1" />
+          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="CodigoCiudad" />
+            </Principal>
+            <Dependent Role="Proveedores">
+              <PropertyRef Name="CodigoCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proveedor__Codig__09A971A2">
+          <End Role="TiposServicioProveedor" Type="Self.TiposServicioProveedor" Multiplicity="1" />
+          <End Role="Proveedores" Type="Self.Proveedores" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposServicioProveedor">
+              <PropertyRef Name="CodigoTipoServicio" />
+            </Principal>
+            <Dependent Role="Proveedores">
+              <PropertyRef Name="CodigoTipoServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacci__Codig__619B8048">
+          <End Role="CuentasAhorro" Type="Self.CuentasAhorro" Multiplicity="1" />
+          <End Role="TransaccionesAhorro" Type="Self.TransaccionesAhorro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentasAhorro">
+              <PropertyRef Name="CodigoCuenta" />
+            </Principal>
+            <Dependent Role="TransaccionesAhorro">
+              <PropertyRef Name="CodigoCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacci__Codig__628FA481">
+          <End Role="TiposTransaccion" Type="Self.TiposTransaccion" Multiplicity="1" />
+          <End Role="TransaccionesAhorro" Type="Self.TransaccionesAhorro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposTransaccion">
+              <PropertyRef Name="CodigoTipoTransaccion" />
+            </Principal>
+            <Dependent Role="TransaccionesAhorro">
+              <PropertyRef Name="CodigoTipoTransaccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsuariosS__Docum__2180FB33">
+          <End Role="Clientes" Type="Self.Clientes" Multiplicity="1" />
+          <End Role="UsuariosSistema" Type="Self.UsuariosSistema" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="DocumentoCliente" />
+            </Principal>
+            <Dependent Role="UsuariosSistema">
+              <PropertyRef Name="DocumentoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NatilleraDBModelStoreContainer">
+          <EntitySet Name="AlquileresLugar" EntityType="Self.AlquileresLugar" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ciudades" EntityType="Self.Ciudades" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clientes" EntityType="Self.Clientes" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ContactosProveedor" EntityType="Self.ContactosProveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CuentasAhorro" EntityType="Self.CuentasAhorro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Departamentos" EntityType="Self.Departamentos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DocumentosCliente" EntityType="Self.DocumentosCliente" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Eventos" EntityType="Self.Eventos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="EventosProveedores" EntityType="Self.EventosProveedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GastosEvento" EntityType="Self.GastosEvento" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Liquidaciones" EntityType="Self.Liquidaciones" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Lugares" EntityType="Self.Lugares" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MetodosPago" EntityType="Self.MetodosPago" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PagosPrestamo" EntityType="Self.PagosPrestamo" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paises" EntityType="Self.Paises" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ParticipacionEventos" EntityType="Self.ParticipacionEventos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Prestamos" EntityType="Self.Prestamos" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Proveedores" EntityType="Self.Proveedores" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TiposCuentaAhorro" EntityType="Self.TiposCuentaAhorro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TiposDocumentoLegal" EntityType="Self.TiposDocumentoLegal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TiposServicioProveedor" EntityType="Self.TiposServicioProveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TiposTransaccion" EntityType="Self.TiposTransaccion" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TransaccionesAhorro" EntityType="Self.TransaccionesAhorro" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UsuariosSistema" EntityType="Self.UsuariosSistema" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__Alquilere__Codig__797309D9" Association="Self.FK__Alquilere__Codig__797309D9">
+            <End Role="Lugares" EntitySet="Lugares" />
+            <End Role="AlquileresLugar" EntitySet="AlquileresLugar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Alquilere__Codig__7A672E12" Association="Self.FK__Alquilere__Codig__7A672E12">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="AlquileresLugar" EntitySet="AlquileresLugar" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ciudades__Codigo__403A8C7D" Association="Self.FK__Ciudades__Codigo__403A8C7D">
+            <End Role="Departamentos" EntitySet="Departamentos" />
+            <End Role="Ciudades" EntitySet="Ciudades" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clientes__Codigo__45F365D3" Association="Self.FK__Clientes__Codigo__45F365D3">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contactos__Docum__0C85DE4D" Association="Self.FK__Contactos__Docum__0C85DE4D">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="ContactosProveedor" EntitySet="ContactosProveedor" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasAh__Codig__59FA5E80" Association="Self.FK__CuentasAh__Codig__59FA5E80">
+            <End Role="TiposCuentaAhorro" EntitySet="TiposCuentaAhorro" />
+            <End Role="CuentasAhorro" EntitySet="CuentasAhorro" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasAh__Docum__59063A47" Association="Self.FK__CuentasAh__Docum__59063A47">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="CuentasAhorro" EntitySet="CuentasAhorro" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Departame__Codig__3C69FB99" Association="Self.FK__Departame__Codig__3C69FB99">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Departamentos" EntitySet="Departamentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Documento__Codig__4F7CD00D" Association="Self.FK__Documento__Codig__4F7CD00D">
+            <End Role="TiposDocumentoLegal" EntitySet="TiposDocumentoLegal" />
+            <End Role="DocumentosCliente" EntitySet="DocumentosCliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Documento__Docum__4E88ABD4" Association="Self.FK__Documento__Docum__4E88ABD4">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="DocumentosCliente" EntitySet="DocumentosCliente" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Eventos__CodigoL__75A278F5" Association="Self.FK__Eventos__CodigoL__75A278F5">
+            <End Role="Lugares" EntitySet="Lugares" />
+            <End Role="Eventos" EntitySet="Eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Eventos__Documen__76969D2E" Association="Self.FK__Eventos__Documen__76969D2E">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Eventos" EntitySet="Eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EventosPr__Codig__10566F31" Association="Self.FK__EventosPr__Codig__10566F31">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="EventosProveedores" EntitySet="EventosProveedores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EventosPr__Docum__114A936A" Association="Self.FK__EventosPr__Docum__114A936A">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="EventosProveedores" EntitySet="EventosProveedores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GastosEve__Codig__18EBB532" Association="Self.FK__GastosEve__Codig__18EBB532">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="GastosEvento" EntitySet="GastosEvento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GastosEve__Docum__19DFD96B" Association="Self.FK__GastosEve__Docum__19DFD96B">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="GastosEvento" EntitySet="GastosEvento" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Liquidaci__Docum__6E01572D" Association="Self.FK__Liquidaci__Docum__6E01572D">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Liquidaciones" EntitySet="Liquidaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lugares__CodigoC__71D1E811" Association="Self.FK__Lugares__CodigoC__71D1E811">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Lugares" EntitySet="Lugares" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PagosPres__Codig__6A30C649" Association="Self.FK__PagosPres__Codig__6A30C649">
+            <End Role="Prestamos" EntitySet="Prestamos" />
+            <End Role="PagosPrestamo" EntitySet="PagosPrestamo" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Participa__Codig__7E37BEF6" Association="Self.FK__Participa__Codig__7E37BEF6">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="ParticipacionEventos" EntitySet="ParticipacionEventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Participa__Docum__7F2BE32F" Association="Self.FK__Participa__Docum__7F2BE32F">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="ParticipacionEventos" EntitySet="ParticipacionEventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Prestamos__Docum__66603565" Association="Self.FK__Prestamos__Docum__66603565">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Prestamos" EntitySet="Prestamos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__Codig__08B54D69" Association="Self.FK__Proveedor__Codig__08B54D69">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Proveedores" EntitySet="Proveedores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__Codig__09A971A2" Association="Self.FK__Proveedor__Codig__09A971A2">
+            <End Role="TiposServicioProveedor" EntitySet="TiposServicioProveedor" />
+            <End Role="Proveedores" EntitySet="Proveedores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacci__Codig__619B8048" Association="Self.FK__Transacci__Codig__619B8048">
+            <End Role="CuentasAhorro" EntitySet="CuentasAhorro" />
+            <End Role="TransaccionesAhorro" EntitySet="TransaccionesAhorro" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacci__Codig__628FA481" Association="Self.FK__Transacci__Codig__628FA481">
+            <End Role="TiposTransaccion" EntitySet="TiposTransaccion" />
+            <End Role="TransaccionesAhorro" EntitySet="TransaccionesAhorro" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsuariosS__Docum__2180FB33" Association="Self.FK__UsuariosS__Docum__2180FB33">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="UsuariosSistema" EntitySet="UsuariosSistema" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="NatilleraDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AlquileresLugar">
+          <Key>
+            <PropertyRef Name="CodigoAlquiler" />
+          </Key>
+          <Property Name="CodigoAlquiler" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoLugar" Type="Int32" Nullable="false" />
+          <Property Name="CodigoEvento" Type="Int32" />
+          <Property Name="FechaInicioAlquiler" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaFinAlquiler" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CostoTotalAlquiler" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="EstadoAlquiler" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Lugare" Relationship="Self.FK__Alquilere__Codig__797309D9" FromRole="AlquileresLugar" ToRole="Lugares" />
+          <NavigationProperty Name="Evento" Relationship="Self.FK__Alquilere__Codig__7A672E12" FromRole="AlquileresLugar" ToRole="Eventos" />
+        </EntityType>
+        <EntityType Name="Ciudade">
+          <Key>
+            <PropertyRef Name="CodigoCiudad" />
+          </Key>
+          <Property Name="CodigoCiudad" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreCiudad" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="CodigoDepartamento" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Departamento" Relationship="Self.FK__Ciudades__Codigo__403A8C7D" FromRole="Ciudades" ToRole="Departamentos" />
+          <NavigationProperty Name="Clientes" Relationship="Self.FK__Clientes__Codigo__45F365D3" FromRole="Ciudades" ToRole="Clientes" />
+          <NavigationProperty Name="Lugares" Relationship="Self.FK__Lugares__CodigoC__71D1E811" FromRole="Ciudades" ToRole="Lugares" />
+          <NavigationProperty Name="Proveedores" Relationship="Self.FK__Proveedor__Codig__08B54D69" FromRole="Ciudades" ToRole="Proveedores" />
+        </EntityType>
+        <EntityType Name="Cliente">
+          <Key>
+            <PropertyRef Name="DocumentoCliente" />
+          </Key>
+          <Property Name="DocumentoCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="TipoIdentificacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PrimerApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="SegundoApellido" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Direccion" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodigoCiudad" Type="Int32" Nullable="false" />
+          <Property Name="FechaNacimiento" Type="DateTime" Precision="0" />
+          <Property Name="Email" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="TelefonoPrincipal" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ciudade" Relationship="Self.FK__Clientes__Codigo__45F365D3" FromRole="Clientes" ToRole="Ciudades" />
+          <NavigationProperty Name="CuentasAhorroes" Relationship="Self.FK__CuentasAh__Docum__59063A47" FromRole="Clientes" ToRole="CuentasAhorro" />
+          <NavigationProperty Name="DocumentosClientes" Relationship="Self.FK__Documento__Docum__4E88ABD4" FromRole="Clientes" ToRole="DocumentosCliente" />
+          <NavigationProperty Name="Eventos" Relationship="Self.FK__Eventos__Documen__76969D2E" FromRole="Clientes" ToRole="Eventos" />
+          <NavigationProperty Name="Liquidaciones" Relationship="Self.FK__Liquidaci__Docum__6E01572D" FromRole="Clientes" ToRole="Liquidaciones" />
+          <NavigationProperty Name="ParticipacionEventos" Relationship="Self.FK__Participa__Docum__7F2BE32F" FromRole="Clientes" ToRole="ParticipacionEventos" />
+          <NavigationProperty Name="Prestamos" Relationship="Self.FK__Prestamos__Docum__66603565" FromRole="Clientes" ToRole="Prestamos" />
+          <NavigationProperty Name="UsuariosSistemas" Relationship="Self.FK__UsuariosS__Docum__2180FB33" FromRole="Clientes" ToRole="UsuariosSistema" />
+        </EntityType>
+        <EntityType Name="ContactosProveedor">
+          <Key>
+            <PropertyRef Name="CodigoContacto" />
+          </Key>
+          <Property Name="CodigoContacto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentoProveedor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Nombres" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Apellidos" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Proveedore" Relationship="Self.FK__Contactos__Docum__0C85DE4D" FromRole="ContactosProveedor" ToRole="Proveedores" />
+        </EntityType>
+        <EntityType Name="CuentasAhorro">
+          <Key>
+            <PropertyRef Name="CodigoCuenta" />
+          </Key>
+          <Property Name="CodigoCuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentoCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NumeroCuenta" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodigoTipoCuenta" Type="Int32" Nullable="false" />
+          <Property Name="FechaApertura" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Saldo" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="Estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__CuentasAh__Docum__59063A47" FromRole="CuentasAhorro" ToRole="Clientes" />
+          <NavigationProperty Name="TiposCuentaAhorro" Relationship="Self.FK__CuentasAh__Codig__59FA5E80" FromRole="CuentasAhorro" ToRole="TiposCuentaAhorro" />
+          <NavigationProperty Name="TransaccionesAhorroes" Relationship="Self.FK__Transacci__Codig__619B8048" FromRole="CuentasAhorro" ToRole="TransaccionesAhorro" />
+        </EntityType>
+        <EntityType Name="Departamento">
+          <Key>
+            <PropertyRef Name="CodigoDepartamento" />
+          </Key>
+          <Property Name="CodigoDepartamento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreDepartamento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <Property Name="CodigoPais" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ciudades" Relationship="Self.FK__Ciudades__Codigo__403A8C7D" FromRole="Departamentos" ToRole="Ciudades" />
+          <NavigationProperty Name="Pais" Relationship="Self.FK__Departame__Codig__3C69FB99" FromRole="Departamentos" ToRole="Paises" />
+        </EntityType>
+        <EntityType Name="DocumentosCliente">
+          <Key>
+            <PropertyRef Name="CodigoDocumento" />
+          </Key>
+          <Property Name="CodigoDocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentoCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodigoTipoDocumento" Type="Int32" Nullable="false" />
+          <Property Name="NombreArchivo" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaCarga" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Vigente" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Documento__Docum__4E88ABD4" FromRole="DocumentosCliente" ToRole="Clientes" />
+          <NavigationProperty Name="TiposDocumentoLegal" Relationship="Self.FK__Documento__Codig__4F7CD00D" FromRole="DocumentosCliente" ToRole="TiposDocumentoLegal" />
+        </EntityType>
+        <EntityType Name="Evento">
+          <Key>
+            <PropertyRef Name="CodigoEvento" />
+          </Key>
+          <Property Name="CodigoEvento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreEvento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaInicio" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaFin" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CodigoLugar" Type="Int32" />
+          <Property Name="PresupuestoEstimado" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="EstadoEvento" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DocumentoOrganizadorCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <NavigationProperty Name="AlquileresLugars" Relationship="Self.FK__Alquilere__Codig__7A672E12" FromRole="Eventos" ToRole="AlquileresLugar" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Eventos__Documen__76969D2E" FromRole="Eventos" ToRole="Clientes" />
+          <NavigationProperty Name="Lugare" Relationship="Self.FK__Eventos__CodigoL__75A278F5" FromRole="Eventos" ToRole="Lugares" />
+          <NavigationProperty Name="EventosProveedores" Relationship="Self.FK__EventosPr__Codig__10566F31" FromRole="Eventos" ToRole="EventosProveedores" />
+          <NavigationProperty Name="GastosEventoes" Relationship="Self.FK__GastosEve__Codig__18EBB532" FromRole="Eventos" ToRole="GastosEvento" />
+          <NavigationProperty Name="ParticipacionEventos" Relationship="Self.FK__Participa__Codig__7E37BEF6" FromRole="Eventos" ToRole="ParticipacionEventos" />
+        </EntityType>
+        <EntityType Name="EventosProveedore">
+          <Key>
+            <PropertyRef Name="CodigoRelacion" />
+          </Key>
+          <Property Name="CodigoRelacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoEvento" Type="Int32" Nullable="false" />
+          <Property Name="DocumentoProveedor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CostoServicioEstimado" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="FechaContratacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="EstadoContrato" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Evento" Relationship="Self.FK__EventosPr__Codig__10566F31" FromRole="EventosProveedores" ToRole="Eventos" />
+          <NavigationProperty Name="Proveedore" Relationship="Self.FK__EventosPr__Docum__114A936A" FromRole="EventosProveedores" ToRole="Proveedores" />
+        </EntityType>
+        <EntityType Name="GastosEvento">
+          <Key>
+            <PropertyRef Name="CodigoGasto" />
+          </Key>
+          <Property Name="CodigoGasto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoEvento" Type="Int32" Nullable="false" />
+          <Property Name="ConceptoGasto" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MontoGasto" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FechaGasto" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DocumentoProveedor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="MetodoPago" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Evento" Relationship="Self.FK__GastosEve__Codig__18EBB532" FromRole="GastosEvento" ToRole="Eventos" />
+          <NavigationProperty Name="Proveedore" Relationship="Self.FK__GastosEve__Docum__19DFD96B" FromRole="GastosEvento" ToRole="Proveedores" />
+        </EntityType>
+        <EntityType Name="Liquidacione">
+          <Key>
+            <PropertyRef Name="CodigoLiquidacion" />
+          </Key>
+          <Property Name="CodigoLiquidacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentoCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaLiquidacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="ValorTotalAhorros" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ValorTotalPrestamosPendientes" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MontoFinalLiquidacion" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="EstadoLiquidacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Liquidaci__Docum__6E01572D" FromRole="Liquidaciones" ToRole="Clientes" />
+        </EntityType>
+        <EntityType Name="Lugare">
+          <Key>
+            <PropertyRef Name="CodigoLugar" />
+          </Key>
+          <Property Name="CodigoLugar" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreLugar" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodigoCiudad" Type="Int32" Nullable="false" />
+          <Property Name="CapacidadPersonas" Type="Int32" />
+          <Property Name="CostoPorDia" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="ContactoPrincipal" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="TelefonoContacto" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="AlquileresLugars" Relationship="Self.FK__Alquilere__Codig__797309D9" FromRole="Lugares" ToRole="AlquileresLugar" />
+          <NavigationProperty Name="Ciudade" Relationship="Self.FK__Lugares__CodigoC__71D1E811" FromRole="Lugares" ToRole="Ciudades" />
+          <NavigationProperty Name="Eventos" Relationship="Self.FK__Eventos__CodigoL__75A278F5" FromRole="Lugares" ToRole="Eventos" />
+        </EntityType>
+        <EntityType Name="MetodosPago">
+          <Key>
+            <PropertyRef Name="CodigoMetodoPago" />
+          </Key>
+          <Property Name="CodigoMetodoPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreMetodo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="PagosPrestamo">
+          <Key>
+            <PropertyRef Name="CodigoPago" />
+          </Key>
+          <Property Name="CodigoPago" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoPrestamo" Type="Int32" Nullable="false" />
+          <Property Name="MontoPago" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FechaPago" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="CapitalPagado" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="InteresesPagados" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="MultasPagadas" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SaldoPendiente" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="Prestamo" Relationship="Self.FK__PagosPres__Codig__6A30C649" FromRole="PagosPrestamo" ToRole="Prestamos" />
+        </EntityType>
+        <EntityType Name="Pais">
+          <Key>
+            <PropertyRef Name="CodigoPais" />
+          </Key>
+          <Property Name="CodigoPais" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombrePais" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Departamentos" Relationship="Self.FK__Departame__Codig__3C69FB99" FromRole="Paises" ToRole="Departamentos" />
+        </EntityType>
+        <EntityType Name="ParticipacionEvento">
+          <Key>
+            <PropertyRef Name="CodigoParticipacion" />
+          </Key>
+          <Property Name="CodigoParticipacion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoEvento" Type="Int32" Nullable="false" />
+          <Property Name="DocumentoCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="FechaInscripcion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MontoPagadoInscripcion" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="EstadoParticipacion" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Participa__Docum__7F2BE32F" FromRole="ParticipacionEventos" ToRole="Clientes" />
+          <NavigationProperty Name="Evento" Relationship="Self.FK__Participa__Codig__7E37BEF6" FromRole="ParticipacionEventos" ToRole="Eventos" />
+        </EntityType>
+        <EntityType Name="Prestamo">
+          <Key>
+            <PropertyRef Name="CodigoPrestamo" />
+          </Key>
+          <Property Name="CodigoPrestamo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentoCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MontoSolicitado" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="MontoAprobado" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="TasaInteres" Type="Decimal" Precision="5" Scale="4" Nullable="false" />
+          <Property Name="PlazoMeses" Type="Int32" Nullable="false" />
+          <Property Name="FechaSolicitud" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="FechaAprobacion" Type="DateTime" Precision="3" />
+          <Property Name="FechaDesembolso" Type="DateTime" Precision="3" />
+          <Property Name="EstadoPrestamo" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__Prestamos__Docum__66603565" FromRole="Prestamos" ToRole="Clientes" />
+          <NavigationProperty Name="PagosPrestamoes" Relationship="Self.FK__PagosPres__Codig__6A30C649" FromRole="Prestamos" ToRole="PagosPrestamo" />
+        </EntityType>
+        <EntityType Name="Proveedore">
+          <Key>
+            <PropertyRef Name="DocumentoProveedor" />
+          </Key>
+          <Property Name="DocumentoProveedor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreCompania" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CodigoCiudad" Type="Int32" Nullable="false" />
+          <Property Name="Telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CodigoTipoServicio" Type="Int32" Nullable="false" />
+          <Property Name="FechaRegistro" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Ciudade" Relationship="Self.FK__Proveedor__Codig__08B54D69" FromRole="Proveedores" ToRole="Ciudades" />
+          <NavigationProperty Name="ContactosProveedors" Relationship="Self.FK__Contactos__Docum__0C85DE4D" FromRole="Proveedores" ToRole="ContactosProveedor" />
+          <NavigationProperty Name="EventosProveedores" Relationship="Self.FK__EventosPr__Docum__114A936A" FromRole="Proveedores" ToRole="EventosProveedores" />
+          <NavigationProperty Name="GastosEventoes" Relationship="Self.FK__GastosEve__Docum__19DFD96B" FromRole="Proveedores" ToRole="GastosEvento" />
+          <NavigationProperty Name="TiposServicioProveedor" Relationship="Self.FK__Proveedor__Codig__09A971A2" FromRole="Proveedores" ToRole="TiposServicioProveedor" />
+        </EntityType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TiposCuentaAhorro">
+          <Key>
+            <PropertyRef Name="CodigoTipoCuenta" />
+          </Key>
+          <Property Name="CodigoTipoCuenta" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTipo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="CuentasAhorroes" Relationship="Self.FK__CuentasAh__Codig__59FA5E80" FromRole="TiposCuentaAhorro" ToRole="CuentasAhorro" />
+        </EntityType>
+        <EntityType Name="TiposDocumentoLegal">
+          <Key>
+            <PropertyRef Name="CodigoTipoDocumento" />
+          </Key>
+          <Property Name="CodigoTipoDocumento" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTipoDocumento" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="DocumentosClientes" Relationship="Self.FK__Documento__Codig__4F7CD00D" FromRole="TiposDocumentoLegal" ToRole="DocumentosCliente" />
+        </EntityType>
+        <EntityType Name="TiposServicioProveedor">
+          <Key>
+            <PropertyRef Name="CodigoTipoServicio" />
+          </Key>
+          <Property Name="CodigoTipoServicio" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTipo" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Proveedores" Relationship="Self.FK__Proveedor__Codig__09A971A2" FromRole="TiposServicioProveedor" ToRole="Proveedores" />
+        </EntityType>
+        <EntityType Name="TiposTransaccion">
+          <Key>
+            <PropertyRef Name="CodigoTipoTransaccion" />
+          </Key>
+          <Property Name="CodigoTipoTransaccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NombreTransaccion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Naturaleza" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="TransaccionesAhorroes" Relationship="Self.FK__Transacci__Codig__628FA481" FromRole="TiposTransaccion" ToRole="TransaccionesAhorro" />
+        </EntityType>
+        <EntityType Name="TransaccionesAhorro">
+          <Key>
+            <PropertyRef Name="CodigoTransaccion" />
+          </Key>
+          <Property Name="CodigoTransaccion" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CodigoCuenta" Type="Int32" Nullable="false" />
+          <Property Name="CodigoTipoTransaccion" Type="Int32" Nullable="false" />
+          <Property Name="Monto" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="FechaTransaccion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SaldoAnterior" Type="Decimal" Precision="18" Scale="2" />
+          <Property Name="SaldoPosterior" Type="Decimal" Precision="18" Scale="2" />
+          <NavigationProperty Name="CuentasAhorro" Relationship="Self.FK__Transacci__Codig__619B8048" FromRole="TransaccionesAhorro" ToRole="CuentasAhorro" />
+          <NavigationProperty Name="TiposTransaccion" Relationship="Self.FK__Transacci__Codig__628FA481" FromRole="TransaccionesAhorro" ToRole="TiposTransaccion" />
+        </EntityType>
+        <EntityType Name="UsuariosSistema">
+          <Key>
+            <PropertyRef Name="CodigoUsuario" />
+          </Key>
+          <Property Name="CodigoUsuario" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DocumentoCliente" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="NombreUsuario" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ClaveHash" Type="String" MaxLength="255" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Salt" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="FechaCreacion" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Activo" Type="Boolean" Nullable="false" />
+          <NavigationProperty Name="Cliente" Relationship="Self.FK__UsuariosS__Docum__2180FB33" FromRole="UsuariosSistema" ToRole="Clientes" />
+        </EntityType>
+        <Association Name="FK__Alquilere__Codig__797309D9">
+          <End Role="Lugares" Type="Self.Lugare" Multiplicity="1" />
+          <End Role="AlquileresLugar" Type="Self.AlquileresLugar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lugares">
+              <PropertyRef Name="CodigoLugar" />
+            </Principal>
+            <Dependent Role="AlquileresLugar">
+              <PropertyRef Name="CodigoLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Alquilere__Codig__7A672E12">
+          <End Role="Eventos" Type="Self.Evento" Multiplicity="0..1" />
+          <End Role="AlquileresLugar" Type="Self.AlquileresLugar" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="CodigoEvento" />
+            </Principal>
+            <Dependent Role="AlquileresLugar">
+              <PropertyRef Name="CodigoEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Ciudades__Codigo__403A8C7D">
+          <End Role="Departamentos" Type="Self.Departamento" Multiplicity="1" />
+          <End Role="Ciudades" Type="Self.Ciudade" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Departamentos">
+              <PropertyRef Name="CodigoDepartamento" />
+            </Principal>
+            <Dependent Role="Ciudades">
+              <PropertyRef Name="CodigoDepartamento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Clientes__Codigo__45F365D3">
+          <End Role="Ciudades" Type="Self.Ciudade" Multiplicity="1" />
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="CodigoCiudad" />
+            </Principal>
+            <Dependent Role="Clientes">
+              <PropertyRef Name="CodigoCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Lugares__CodigoC__71D1E811">
+          <End Role="Ciudades" Type="Self.Ciudade" Multiplicity="1" />
+          <End Role="Lugares" Type="Self.Lugare" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="CodigoCiudad" />
+            </Principal>
+            <Dependent Role="Lugares">
+              <PropertyRef Name="CodigoCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proveedor__Codig__08B54D69">
+          <End Role="Ciudades" Type="Self.Ciudade" Multiplicity="1" />
+          <End Role="Proveedores" Type="Self.Proveedore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ciudades">
+              <PropertyRef Name="CodigoCiudad" />
+            </Principal>
+            <Dependent Role="Proveedores">
+              <PropertyRef Name="CodigoCiudad" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasAh__Docum__59063A47">
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="CuentasAhorro" Type="Self.CuentasAhorro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="DocumentoCliente" />
+            </Principal>
+            <Dependent Role="CuentasAhorro">
+              <PropertyRef Name="DocumentoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Documento__Docum__4E88ABD4">
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="DocumentosCliente" Type="Self.DocumentosCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="DocumentoCliente" />
+            </Principal>
+            <Dependent Role="DocumentosCliente">
+              <PropertyRef Name="DocumentoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Eventos__Documen__76969D2E">
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="0..1" />
+          <End Role="Eventos" Type="Self.Evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="DocumentoCliente" />
+            </Principal>
+            <Dependent Role="Eventos">
+              <PropertyRef Name="DocumentoOrganizadorCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Liquidaci__Docum__6E01572D">
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Liquidaciones" Type="Self.Liquidacione" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="DocumentoCliente" />
+            </Principal>
+            <Dependent Role="Liquidaciones">
+              <PropertyRef Name="DocumentoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Participa__Docum__7F2BE32F">
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="ParticipacionEventos" Type="Self.ParticipacionEvento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="DocumentoCliente" />
+            </Principal>
+            <Dependent Role="ParticipacionEventos">
+              <PropertyRef Name="DocumentoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Prestamos__Docum__66603565">
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="Prestamos" Type="Self.Prestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="DocumentoCliente" />
+            </Principal>
+            <Dependent Role="Prestamos">
+              <PropertyRef Name="DocumentoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__UsuariosS__Docum__2180FB33">
+          <End Role="Clientes" Type="Self.Cliente" Multiplicity="1" />
+          <End Role="UsuariosSistema" Type="Self.UsuariosSistema" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Clientes">
+              <PropertyRef Name="DocumentoCliente" />
+            </Principal>
+            <Dependent Role="UsuariosSistema">
+              <PropertyRef Name="DocumentoCliente" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Contactos__Docum__0C85DE4D">
+          <End Role="Proveedores" Type="Self.Proveedore" Multiplicity="1" />
+          <End Role="ContactosProveedor" Type="Self.ContactosProveedor" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="DocumentoProveedor" />
+            </Principal>
+            <Dependent Role="ContactosProveedor">
+              <PropertyRef Name="DocumentoProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__CuentasAh__Codig__59FA5E80">
+          <End Role="TiposCuentaAhorro" Type="Self.TiposCuentaAhorro" Multiplicity="1" />
+          <End Role="CuentasAhorro" Type="Self.CuentasAhorro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposCuentaAhorro">
+              <PropertyRef Name="CodigoTipoCuenta" />
+            </Principal>
+            <Dependent Role="CuentasAhorro">
+              <PropertyRef Name="CodigoTipoCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacci__Codig__619B8048">
+          <End Role="CuentasAhorro" Type="Self.CuentasAhorro" Multiplicity="1" />
+          <End Role="TransaccionesAhorro" Type="Self.TransaccionesAhorro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CuentasAhorro">
+              <PropertyRef Name="CodigoCuenta" />
+            </Principal>
+            <Dependent Role="TransaccionesAhorro">
+              <PropertyRef Name="CodigoCuenta" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Departame__Codig__3C69FB99">
+          <End Role="Paises" Type="Self.Pais" Multiplicity="1" />
+          <End Role="Departamentos" Type="Self.Departamento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paises">
+              <PropertyRef Name="CodigoPais" />
+            </Principal>
+            <Dependent Role="Departamentos">
+              <PropertyRef Name="CodigoPais" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Documento__Codig__4F7CD00D">
+          <End Role="TiposDocumentoLegal" Type="Self.TiposDocumentoLegal" Multiplicity="1" />
+          <End Role="DocumentosCliente" Type="Self.DocumentosCliente" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposDocumentoLegal">
+              <PropertyRef Name="CodigoTipoDocumento" />
+            </Principal>
+            <Dependent Role="DocumentosCliente">
+              <PropertyRef Name="CodigoTipoDocumento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Eventos__CodigoL__75A278F5">
+          <End Role="Lugares" Type="Self.Lugare" Multiplicity="0..1" />
+          <End Role="Eventos" Type="Self.Evento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Lugares">
+              <PropertyRef Name="CodigoLugar" />
+            </Principal>
+            <Dependent Role="Eventos">
+              <PropertyRef Name="CodigoLugar" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EventosPr__Codig__10566F31">
+          <End Role="Eventos" Type="Self.Evento" Multiplicity="1" />
+          <End Role="EventosProveedores" Type="Self.EventosProveedore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="CodigoEvento" />
+            </Principal>
+            <Dependent Role="EventosProveedores">
+              <PropertyRef Name="CodigoEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GastosEve__Codig__18EBB532">
+          <End Role="Eventos" Type="Self.Evento" Multiplicity="1" />
+          <End Role="GastosEvento" Type="Self.GastosEvento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="CodigoEvento" />
+            </Principal>
+            <Dependent Role="GastosEvento">
+              <PropertyRef Name="CodigoEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Participa__Codig__7E37BEF6">
+          <End Role="Eventos" Type="Self.Evento" Multiplicity="1" />
+          <End Role="ParticipacionEventos" Type="Self.ParticipacionEvento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Eventos">
+              <PropertyRef Name="CodigoEvento" />
+            </Principal>
+            <Dependent Role="ParticipacionEventos">
+              <PropertyRef Name="CodigoEvento" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__EventosPr__Docum__114A936A">
+          <End Role="Proveedores" Type="Self.Proveedore" Multiplicity="1" />
+          <End Role="EventosProveedores" Type="Self.EventosProveedore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="DocumentoProveedor" />
+            </Principal>
+            <Dependent Role="EventosProveedores">
+              <PropertyRef Name="DocumentoProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__GastosEve__Docum__19DFD96B">
+          <End Role="Proveedores" Type="Self.Proveedore" Multiplicity="0..1" />
+          <End Role="GastosEvento" Type="Self.GastosEvento" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Proveedores">
+              <PropertyRef Name="DocumentoProveedor" />
+            </Principal>
+            <Dependent Role="GastosEvento">
+              <PropertyRef Name="DocumentoProveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PagosPres__Codig__6A30C649">
+          <End Role="Prestamos" Type="Self.Prestamo" Multiplicity="1" />
+          <End Role="PagosPrestamo" Type="Self.PagosPrestamo" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Prestamos">
+              <PropertyRef Name="CodigoPrestamo" />
+            </Principal>
+            <Dependent Role="PagosPrestamo">
+              <PropertyRef Name="CodigoPrestamo" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Proveedor__Codig__09A971A2">
+          <End Role="TiposServicioProveedor" Type="Self.TiposServicioProveedor" Multiplicity="1" />
+          <End Role="Proveedores" Type="Self.Proveedore" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposServicioProveedor">
+              <PropertyRef Name="CodigoTipoServicio" />
+            </Principal>
+            <Dependent Role="Proveedores">
+              <PropertyRef Name="CodigoTipoServicio" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__Transacci__Codig__628FA481">
+          <End Role="TiposTransaccion" Type="Self.TiposTransaccion" Multiplicity="1" />
+          <End Role="TransaccionesAhorro" Type="Self.TransaccionesAhorro" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TiposTransaccion">
+              <PropertyRef Name="CodigoTipoTransaccion" />
+            </Principal>
+            <Dependent Role="TransaccionesAhorro">
+              <PropertyRef Name="CodigoTipoTransaccion" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="NatilleraDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AlquileresLugars" EntityType="Self.AlquileresLugar" />
+          <EntitySet Name="Ciudades" EntityType="Self.Ciudade" />
+          <EntitySet Name="Clientes" EntityType="Self.Cliente" />
+          <EntitySet Name="ContactosProveedors" EntityType="Self.ContactosProveedor" />
+          <EntitySet Name="CuentasAhorroes" EntityType="Self.CuentasAhorro" />
+          <EntitySet Name="Departamentos" EntityType="Self.Departamento" />
+          <EntitySet Name="DocumentosClientes" EntityType="Self.DocumentosCliente" />
+          <EntitySet Name="Eventos" EntityType="Self.Evento" />
+          <EntitySet Name="EventosProveedores" EntityType="Self.EventosProveedore" />
+          <EntitySet Name="GastosEventoes" EntityType="Self.GastosEvento" />
+          <EntitySet Name="Liquidaciones" EntityType="Self.Liquidacione" />
+          <EntitySet Name="Lugares" EntityType="Self.Lugare" />
+          <EntitySet Name="MetodosPagoes" EntityType="Self.MetodosPago" />
+          <EntitySet Name="PagosPrestamoes" EntityType="Self.PagosPrestamo" />
+          <EntitySet Name="Paises" EntityType="Self.Pais" />
+          <EntitySet Name="ParticipacionEventos" EntityType="Self.ParticipacionEvento" />
+          <EntitySet Name="Prestamos" EntityType="Self.Prestamo" />
+          <EntitySet Name="Proveedores" EntityType="Self.Proveedore" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+          <EntitySet Name="TiposCuentaAhorroes" EntityType="Self.TiposCuentaAhorro" />
+          <EntitySet Name="TiposDocumentoLegals" EntityType="Self.TiposDocumentoLegal" />
+          <EntitySet Name="TiposServicioProveedors" EntityType="Self.TiposServicioProveedor" />
+          <EntitySet Name="TiposTransaccions" EntityType="Self.TiposTransaccion" />
+          <EntitySet Name="TransaccionesAhorroes" EntityType="Self.TransaccionesAhorro" />
+          <EntitySet Name="UsuariosSistemas" EntityType="Self.UsuariosSistema" />
+          <AssociationSet Name="FK__Alquilere__Codig__797309D9" Association="Self.FK__Alquilere__Codig__797309D9">
+            <End Role="Lugares" EntitySet="Lugares" />
+            <End Role="AlquileresLugar" EntitySet="AlquileresLugars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Alquilere__Codig__7A672E12" Association="Self.FK__Alquilere__Codig__7A672E12">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="AlquileresLugar" EntitySet="AlquileresLugars" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Ciudades__Codigo__403A8C7D" Association="Self.FK__Ciudades__Codigo__403A8C7D">
+            <End Role="Departamentos" EntitySet="Departamentos" />
+            <End Role="Ciudades" EntitySet="Ciudades" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Clientes__Codigo__45F365D3" Association="Self.FK__Clientes__Codigo__45F365D3">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Clientes" EntitySet="Clientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Lugares__CodigoC__71D1E811" Association="Self.FK__Lugares__CodigoC__71D1E811">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Lugares" EntitySet="Lugares" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__Codig__08B54D69" Association="Self.FK__Proveedor__Codig__08B54D69">
+            <End Role="Ciudades" EntitySet="Ciudades" />
+            <End Role="Proveedores" EntitySet="Proveedores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasAh__Docum__59063A47" Association="Self.FK__CuentasAh__Docum__59063A47">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="CuentasAhorro" EntitySet="CuentasAhorroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Documento__Docum__4E88ABD4" Association="Self.FK__Documento__Docum__4E88ABD4">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="DocumentosCliente" EntitySet="DocumentosClientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Eventos__Documen__76969D2E" Association="Self.FK__Eventos__Documen__76969D2E">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Eventos" EntitySet="Eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Liquidaci__Docum__6E01572D" Association="Self.FK__Liquidaci__Docum__6E01572D">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Liquidaciones" EntitySet="Liquidaciones" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Participa__Docum__7F2BE32F" Association="Self.FK__Participa__Docum__7F2BE32F">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="ParticipacionEventos" EntitySet="ParticipacionEventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Prestamos__Docum__66603565" Association="Self.FK__Prestamos__Docum__66603565">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="Prestamos" EntitySet="Prestamos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__UsuariosS__Docum__2180FB33" Association="Self.FK__UsuariosS__Docum__2180FB33">
+            <End Role="Clientes" EntitySet="Clientes" />
+            <End Role="UsuariosSistema" EntitySet="UsuariosSistemas" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Contactos__Docum__0C85DE4D" Association="Self.FK__Contactos__Docum__0C85DE4D">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="ContactosProveedor" EntitySet="ContactosProveedors" />
+          </AssociationSet>
+          <AssociationSet Name="FK__CuentasAh__Codig__59FA5E80" Association="Self.FK__CuentasAh__Codig__59FA5E80">
+            <End Role="TiposCuentaAhorro" EntitySet="TiposCuentaAhorroes" />
+            <End Role="CuentasAhorro" EntitySet="CuentasAhorroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacci__Codig__619B8048" Association="Self.FK__Transacci__Codig__619B8048">
+            <End Role="CuentasAhorro" EntitySet="CuentasAhorroes" />
+            <End Role="TransaccionesAhorro" EntitySet="TransaccionesAhorroes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Departame__Codig__3C69FB99" Association="Self.FK__Departame__Codig__3C69FB99">
+            <End Role="Paises" EntitySet="Paises" />
+            <End Role="Departamentos" EntitySet="Departamentos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Documento__Codig__4F7CD00D" Association="Self.FK__Documento__Codig__4F7CD00D">
+            <End Role="TiposDocumentoLegal" EntitySet="TiposDocumentoLegals" />
+            <End Role="DocumentosCliente" EntitySet="DocumentosClientes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Eventos__CodigoL__75A278F5" Association="Self.FK__Eventos__CodigoL__75A278F5">
+            <End Role="Lugares" EntitySet="Lugares" />
+            <End Role="Eventos" EntitySet="Eventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EventosPr__Codig__10566F31" Association="Self.FK__EventosPr__Codig__10566F31">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="EventosProveedores" EntitySet="EventosProveedores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GastosEve__Codig__18EBB532" Association="Self.FK__GastosEve__Codig__18EBB532">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="GastosEvento" EntitySet="GastosEventoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Participa__Codig__7E37BEF6" Association="Self.FK__Participa__Codig__7E37BEF6">
+            <End Role="Eventos" EntitySet="Eventos" />
+            <End Role="ParticipacionEventos" EntitySet="ParticipacionEventos" />
+          </AssociationSet>
+          <AssociationSet Name="FK__EventosPr__Docum__114A936A" Association="Self.FK__EventosPr__Docum__114A936A">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="EventosProveedores" EntitySet="EventosProveedores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__GastosEve__Docum__19DFD96B" Association="Self.FK__GastosEve__Docum__19DFD96B">
+            <End Role="Proveedores" EntitySet="Proveedores" />
+            <End Role="GastosEvento" EntitySet="GastosEventoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PagosPres__Codig__6A30C649" Association="Self.FK__PagosPres__Codig__6A30C649">
+            <End Role="Prestamos" EntitySet="Prestamos" />
+            <End Role="PagosPrestamo" EntitySet="PagosPrestamoes" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Proveedor__Codig__09A971A2" Association="Self.FK__Proveedor__Codig__09A971A2">
+            <End Role="TiposServicioProveedor" EntitySet="TiposServicioProveedors" />
+            <End Role="Proveedores" EntitySet="Proveedores" />
+          </AssociationSet>
+          <AssociationSet Name="FK__Transacci__Codig__628FA481" Association="Self.FK__Transacci__Codig__628FA481">
+            <End Role="TiposTransaccion" EntitySet="TiposTransaccions" />
+            <End Role="TransaccionesAhorro" EntitySet="TransaccionesAhorroes" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="NatilleraDBModelStoreContainer" CdmEntityContainer="NatilleraDBEntities">
+          <EntitySetMapping Name="AlquileresLugars">
+            <EntityTypeMapping TypeName="NatilleraDBModel.AlquileresLugar">
+              <MappingFragment StoreEntitySet="AlquileresLugar">
+                <ScalarProperty Name="CodigoAlquiler" ColumnName="CodigoAlquiler" />
+                <ScalarProperty Name="CodigoLugar" ColumnName="CodigoLugar" />
+                <ScalarProperty Name="CodigoEvento" ColumnName="CodigoEvento" />
+                <ScalarProperty Name="FechaInicioAlquiler" ColumnName="FechaInicioAlquiler" />
+                <ScalarProperty Name="FechaFinAlquiler" ColumnName="FechaFinAlquiler" />
+                <ScalarProperty Name="CostoTotalAlquiler" ColumnName="CostoTotalAlquiler" />
+                <ScalarProperty Name="EstadoAlquiler" ColumnName="EstadoAlquiler" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ciudades">
+            <EntityTypeMapping TypeName="NatilleraDBModel.Ciudade">
+              <MappingFragment StoreEntitySet="Ciudades">
+                <ScalarProperty Name="CodigoCiudad" ColumnName="CodigoCiudad" />
+                <ScalarProperty Name="NombreCiudad" ColumnName="NombreCiudad" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="CodigoDepartamento" ColumnName="CodigoDepartamento" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clientes">
+            <EntityTypeMapping TypeName="NatilleraDBModel.Cliente">
+              <MappingFragment StoreEntitySet="Clientes">
+                <ScalarProperty Name="DocumentoCliente" ColumnName="DocumentoCliente" />
+                <ScalarProperty Name="TipoIdentificacion" ColumnName="TipoIdentificacion" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="PrimerApellido" ColumnName="PrimerApellido" />
+                <ScalarProperty Name="SegundoApellido" ColumnName="SegundoApellido" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="CodigoCiudad" ColumnName="CodigoCiudad" />
+                <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="TelefonoPrincipal" ColumnName="TelefonoPrincipal" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ContactosProveedors">
+            <EntityTypeMapping TypeName="NatilleraDBModel.ContactosProveedor">
+              <MappingFragment StoreEntitySet="ContactosProveedor">
+                <ScalarProperty Name="CodigoContacto" ColumnName="CodigoContacto" />
+                <ScalarProperty Name="DocumentoProveedor" ColumnName="DocumentoProveedor" />
+                <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+                <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CuentasAhorroes">
+            <EntityTypeMapping TypeName="NatilleraDBModel.CuentasAhorro">
+              <MappingFragment StoreEntitySet="CuentasAhorro">
+                <ScalarProperty Name="CodigoCuenta" ColumnName="CodigoCuenta" />
+                <ScalarProperty Name="DocumentoCliente" ColumnName="DocumentoCliente" />
+                <ScalarProperty Name="NumeroCuenta" ColumnName="NumeroCuenta" />
+                <ScalarProperty Name="CodigoTipoCuenta" ColumnName="CodigoTipoCuenta" />
+                <ScalarProperty Name="FechaApertura" ColumnName="FechaApertura" />
+                <ScalarProperty Name="Saldo" ColumnName="Saldo" />
+                <ScalarProperty Name="Estado" ColumnName="Estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Departamentos">
+            <EntityTypeMapping TypeName="NatilleraDBModel.Departamento">
+              <MappingFragment StoreEntitySet="Departamentos">
+                <ScalarProperty Name="CodigoDepartamento" ColumnName="CodigoDepartamento" />
+                <ScalarProperty Name="NombreDepartamento" ColumnName="NombreDepartamento" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+                <ScalarProperty Name="CodigoPais" ColumnName="CodigoPais" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DocumentosClientes">
+            <EntityTypeMapping TypeName="NatilleraDBModel.DocumentosCliente">
+              <MappingFragment StoreEntitySet="DocumentosCliente">
+                <ScalarProperty Name="CodigoDocumento" ColumnName="CodigoDocumento" />
+                <ScalarProperty Name="DocumentoCliente" ColumnName="DocumentoCliente" />
+                <ScalarProperty Name="CodigoTipoDocumento" ColumnName="CodigoTipoDocumento" />
+                <ScalarProperty Name="NombreArchivo" ColumnName="NombreArchivo" />
+                <ScalarProperty Name="FechaCarga" ColumnName="FechaCarga" />
+                <ScalarProperty Name="Vigente" ColumnName="Vigente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Eventos">
+            <EntityTypeMapping TypeName="NatilleraDBModel.Evento">
+              <MappingFragment StoreEntitySet="Eventos">
+                <ScalarProperty Name="CodigoEvento" ColumnName="CodigoEvento" />
+                <ScalarProperty Name="NombreEvento" ColumnName="NombreEvento" />
+                <ScalarProperty Name="FechaInicio" ColumnName="FechaInicio" />
+                <ScalarProperty Name="FechaFin" ColumnName="FechaFin" />
+                <ScalarProperty Name="CodigoLugar" ColumnName="CodigoLugar" />
+                <ScalarProperty Name="PresupuestoEstimado" ColumnName="PresupuestoEstimado" />
+                <ScalarProperty Name="EstadoEvento" ColumnName="EstadoEvento" />
+                <ScalarProperty Name="DocumentoOrganizadorCliente" ColumnName="DocumentoOrganizadorCliente" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EventosProveedores">
+            <EntityTypeMapping TypeName="NatilleraDBModel.EventosProveedore">
+              <MappingFragment StoreEntitySet="EventosProveedores">
+                <ScalarProperty Name="CodigoRelacion" ColumnName="CodigoRelacion" />
+                <ScalarProperty Name="CodigoEvento" ColumnName="CodigoEvento" />
+                <ScalarProperty Name="DocumentoProveedor" ColumnName="DocumentoProveedor" />
+                <ScalarProperty Name="CostoServicioEstimado" ColumnName="CostoServicioEstimado" />
+                <ScalarProperty Name="FechaContratacion" ColumnName="FechaContratacion" />
+                <ScalarProperty Name="EstadoContrato" ColumnName="EstadoContrato" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GastosEventoes">
+            <EntityTypeMapping TypeName="NatilleraDBModel.GastosEvento">
+              <MappingFragment StoreEntitySet="GastosEvento">
+                <ScalarProperty Name="CodigoGasto" ColumnName="CodigoGasto" />
+                <ScalarProperty Name="CodigoEvento" ColumnName="CodigoEvento" />
+                <ScalarProperty Name="ConceptoGasto" ColumnName="ConceptoGasto" />
+                <ScalarProperty Name="MontoGasto" ColumnName="MontoGasto" />
+                <ScalarProperty Name="FechaGasto" ColumnName="FechaGasto" />
+                <ScalarProperty Name="DocumentoProveedor" ColumnName="DocumentoProveedor" />
+                <ScalarProperty Name="MetodoPago" ColumnName="MetodoPago" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Liquidaciones">
+            <EntityTypeMapping TypeName="NatilleraDBModel.Liquidacione">
+              <MappingFragment StoreEntitySet="Liquidaciones">
+                <ScalarProperty Name="CodigoLiquidacion" ColumnName="CodigoLiquidacion" />
+                <ScalarProperty Name="DocumentoCliente" ColumnName="DocumentoCliente" />
+                <ScalarProperty Name="FechaLiquidacion" ColumnName="FechaLiquidacion" />
+                <ScalarProperty Name="ValorTotalAhorros" ColumnName="ValorTotalAhorros" />
+                <ScalarProperty Name="ValorTotalPrestamosPendientes" ColumnName="ValorTotalPrestamosPendientes" />
+                <ScalarProperty Name="MontoFinalLiquidacion" ColumnName="MontoFinalLiquidacion" />
+                <ScalarProperty Name="EstadoLiquidacion" ColumnName="EstadoLiquidacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Lugares">
+            <EntityTypeMapping TypeName="NatilleraDBModel.Lugare">
+              <MappingFragment StoreEntitySet="Lugares">
+                <ScalarProperty Name="CodigoLugar" ColumnName="CodigoLugar" />
+                <ScalarProperty Name="NombreLugar" ColumnName="NombreLugar" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="CodigoCiudad" ColumnName="CodigoCiudad" />
+                <ScalarProperty Name="CapacidadPersonas" ColumnName="CapacidadPersonas" />
+                <ScalarProperty Name="CostoPorDia" ColumnName="CostoPorDia" />
+                <ScalarProperty Name="ContactoPrincipal" ColumnName="ContactoPrincipal" />
+                <ScalarProperty Name="TelefonoContacto" ColumnName="TelefonoContacto" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MetodosPagoes">
+            <EntityTypeMapping TypeName="NatilleraDBModel.MetodosPago">
+              <MappingFragment StoreEntitySet="MetodosPago">
+                <ScalarProperty Name="CodigoMetodoPago" ColumnName="CodigoMetodoPago" />
+                <ScalarProperty Name="NombreMetodo" ColumnName="NombreMetodo" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PagosPrestamoes">
+            <EntityTypeMapping TypeName="NatilleraDBModel.PagosPrestamo">
+              <MappingFragment StoreEntitySet="PagosPrestamo">
+                <ScalarProperty Name="CodigoPago" ColumnName="CodigoPago" />
+                <ScalarProperty Name="CodigoPrestamo" ColumnName="CodigoPrestamo" />
+                <ScalarProperty Name="MontoPago" ColumnName="MontoPago" />
+                <ScalarProperty Name="FechaPago" ColumnName="FechaPago" />
+                <ScalarProperty Name="CapitalPagado" ColumnName="CapitalPagado" />
+                <ScalarProperty Name="InteresesPagados" ColumnName="InteresesPagados" />
+                <ScalarProperty Name="MultasPagadas" ColumnName="MultasPagadas" />
+                <ScalarProperty Name="SaldoPendiente" ColumnName="SaldoPendiente" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paises">
+            <EntityTypeMapping TypeName="NatilleraDBModel.Pais">
+              <MappingFragment StoreEntitySet="Paises">
+                <ScalarProperty Name="CodigoPais" ColumnName="CodigoPais" />
+                <ScalarProperty Name="NombrePais" ColumnName="NombrePais" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ParticipacionEventos">
+            <EntityTypeMapping TypeName="NatilleraDBModel.ParticipacionEvento">
+              <MappingFragment StoreEntitySet="ParticipacionEventos">
+                <ScalarProperty Name="CodigoParticipacion" ColumnName="CodigoParticipacion" />
+                <ScalarProperty Name="CodigoEvento" ColumnName="CodigoEvento" />
+                <ScalarProperty Name="DocumentoCliente" ColumnName="DocumentoCliente" />
+                <ScalarProperty Name="FechaInscripcion" ColumnName="FechaInscripcion" />
+                <ScalarProperty Name="MontoPagadoInscripcion" ColumnName="MontoPagadoInscripcion" />
+                <ScalarProperty Name="EstadoParticipacion" ColumnName="EstadoParticipacion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Prestamos">
+            <EntityTypeMapping TypeName="NatilleraDBModel.Prestamo">
+              <MappingFragment StoreEntitySet="Prestamos">
+                <ScalarProperty Name="CodigoPrestamo" ColumnName="CodigoPrestamo" />
+                <ScalarProperty Name="DocumentoCliente" ColumnName="DocumentoCliente" />
+                <ScalarProperty Name="MontoSolicitado" ColumnName="MontoSolicitado" />
+                <ScalarProperty Name="MontoAprobado" ColumnName="MontoAprobado" />
+                <ScalarProperty Name="TasaInteres" ColumnName="TasaInteres" />
+                <ScalarProperty Name="PlazoMeses" ColumnName="PlazoMeses" />
+                <ScalarProperty Name="FechaSolicitud" ColumnName="FechaSolicitud" />
+                <ScalarProperty Name="FechaAprobacion" ColumnName="FechaAprobacion" />
+                <ScalarProperty Name="FechaDesembolso" ColumnName="FechaDesembolso" />
+                <ScalarProperty Name="EstadoPrestamo" ColumnName="EstadoPrestamo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Proveedores">
+            <EntityTypeMapping TypeName="NatilleraDBModel.Proveedore">
+              <MappingFragment StoreEntitySet="Proveedores">
+                <ScalarProperty Name="DocumentoProveedor" ColumnName="DocumentoProveedor" />
+                <ScalarProperty Name="NombreCompania" ColumnName="NombreCompania" />
+                <ScalarProperty Name="Direccion" ColumnName="Direccion" />
+                <ScalarProperty Name="CodigoCiudad" ColumnName="CodigoCiudad" />
+                <ScalarProperty Name="Telefono" ColumnName="Telefono" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="CodigoTipoServicio" ColumnName="CodigoTipoServicio" />
+                <ScalarProperty Name="FechaRegistro" ColumnName="FechaRegistro" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="NatilleraDBModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposCuentaAhorroes">
+            <EntityTypeMapping TypeName="NatilleraDBModel.TiposCuentaAhorro">
+              <MappingFragment StoreEntitySet="TiposCuentaAhorro">
+                <ScalarProperty Name="CodigoTipoCuenta" ColumnName="CodigoTipoCuenta" />
+                <ScalarProperty Name="NombreTipo" ColumnName="NombreTipo" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposDocumentoLegals">
+            <EntityTypeMapping TypeName="NatilleraDBModel.TiposDocumentoLegal">
+              <MappingFragment StoreEntitySet="TiposDocumentoLegal">
+                <ScalarProperty Name="CodigoTipoDocumento" ColumnName="CodigoTipoDocumento" />
+                <ScalarProperty Name="NombreTipoDocumento" ColumnName="NombreTipoDocumento" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposServicioProveedors">
+            <EntityTypeMapping TypeName="NatilleraDBModel.TiposServicioProveedor">
+              <MappingFragment StoreEntitySet="TiposServicioProveedor">
+                <ScalarProperty Name="CodigoTipoServicio" ColumnName="CodigoTipoServicio" />
+                <ScalarProperty Name="NombreTipo" ColumnName="NombreTipo" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TiposTransaccions">
+            <EntityTypeMapping TypeName="NatilleraDBModel.TiposTransaccion">
+              <MappingFragment StoreEntitySet="TiposTransaccion">
+                <ScalarProperty Name="CodigoTipoTransaccion" ColumnName="CodigoTipoTransaccion" />
+                <ScalarProperty Name="NombreTransaccion" ColumnName="NombreTransaccion" />
+                <ScalarProperty Name="Naturaleza" ColumnName="Naturaleza" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TransaccionesAhorroes">
+            <EntityTypeMapping TypeName="NatilleraDBModel.TransaccionesAhorro">
+              <MappingFragment StoreEntitySet="TransaccionesAhorro">
+                <ScalarProperty Name="CodigoTransaccion" ColumnName="CodigoTransaccion" />
+                <ScalarProperty Name="CodigoCuenta" ColumnName="CodigoCuenta" />
+                <ScalarProperty Name="CodigoTipoTransaccion" ColumnName="CodigoTipoTransaccion" />
+                <ScalarProperty Name="Monto" ColumnName="Monto" />
+                <ScalarProperty Name="FechaTransaccion" ColumnName="FechaTransaccion" />
+                <ScalarProperty Name="SaldoAnterior" ColumnName="SaldoAnterior" />
+                <ScalarProperty Name="SaldoPosterior" ColumnName="SaldoPosterior" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UsuariosSistemas">
+            <EntityTypeMapping TypeName="NatilleraDBModel.UsuariosSistema">
+              <MappingFragment StoreEntitySet="UsuariosSistema">
+                <ScalarProperty Name="CodigoUsuario" ColumnName="CodigoUsuario" />
+                <ScalarProperty Name="DocumentoCliente" ColumnName="DocumentoCliente" />
+                <ScalarProperty Name="NombreUsuario" ColumnName="NombreUsuario" />
+                <ScalarProperty Name="ClaveHash" ColumnName="ClaveHash" />
+                <ScalarProperty Name="Salt" ColumnName="Salt" />
+                <ScalarProperty Name="FechaCreacion" ColumnName="FechaCreacion" />
+                <ScalarProperty Name="Activo" ColumnName="Activo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
