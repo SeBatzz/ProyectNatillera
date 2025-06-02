@@ -9,6 +9,7 @@
 
 namespace ProyectNatillera.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -20,8 +21,10 @@ namespace ProyectNatillera.Models
         public string NombreArchivo { get; set; }
         public System.DateTime FechaCarga { get; set; }
         public bool Vigente { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Cliente Cliente { get; set; }
+        [JsonIgnore]
         public virtual TiposDocumentoLegal TiposDocumentoLegal { get; set; }
     }
 }

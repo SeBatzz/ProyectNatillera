@@ -164,12 +164,16 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Clases\ClsCliente.cs" />
+    <Compile Include="Clases\ClsDocumentosCliente.cs" />
     <Compile Include="Clases\ClsPagosPrestamo.cs" />
     <Compile Include="Clases\ClsPrestamo.cs" />
+    <Compile Include="Clases\ClsTipoDocumentoLegal.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\DocumentosClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PagoPrestamosController.cs" />
     <Compile Include="Controllers\PrestamosController.cs" />
+    <Compile Include="Controllers\TiposDocumentosLegalesController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -351,7 +355,9 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\DocumentosClientes\" />
     <Folder Include="Views\PagoPrestamos\" />
+    <Folder Include="Views\TiposDocumentosLegales\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />
