@@ -9,6 +9,7 @@
 
 namespace ProyectNatillera.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -30,9 +31,11 @@ namespace ProyectNatillera.Models
         public Nullable<System.DateTime> FechaAprobacion { get; set; }
         public Nullable<System.DateTime> FechaDesembolso { get; set; }
         public string EstadoPrestamo { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Cliente Cliente { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<PagosPrestamo> PagosPrestamoes { get; set; }
     }
 }

@@ -12,19 +12,18 @@ namespace ProyectNatillera.Clases
         public NatilleraDBEntities NatilleraDB = new NatilleraDBEntities();
         public Cliente cliente { get; set; }
 
-        public Cliente ConsultarXDocumento(string Documento)
+        public Cliente ConsultarXId(string Id) // Devulve un objeto Cliente
         {
 
-            Cliente Cl = NatilleraDB.Clientes.FirstOrDefault(e => e.DocumentoCliente == Documento);
+            Cliente Cl = NatilleraDB.Clientes.FirstOrDefault(x => x.DocumentoCliente == Id);
             return Cl;
         }
 
-
-        public List<Cliente> ConsultarTodos()
+        public List<Cliente> ConsultarTodos()   // Devulve una lista de Cliente
         {
             
             return NatilleraDB.Clientes
-                .OrderBy(e => e.DocumentoCliente)
+                .OrderBy(x => x.DocumentoCliente)
                 .ToList();
         }
 
@@ -57,11 +56,11 @@ namespace ProyectNatillera.Clases
                 return "Error: No se proporcionó un objeto Cliente para actualizar.";
             }
 
-            Cliente cl = ConsultarXDocumento(cliente.DocumentoCliente);
+            Cliente cl = ConsultarXId(cliente.DocumentoCliente);
 
             if (cl == null)
             {
-                return "Error: El documento del cliente no es válido o el cliente no existe.";
+                return "Error: El ID del Prestamo no es válido o el cliente no existe.";
             }
 
             try
@@ -78,18 +77,17 @@ namespace ProyectNatillera.Clases
             }
         }
 
-
-        public string EliminarPorDocumento(string documento)
+        public string EliminarXId(string documento)
         {
             try
             {
 
-                Cliente cl = ConsultarXDocumento(documento);
+                Cliente cl = ConsultarXId(documento);
 
 
                 if (cl == null)
                 {
-                    return "Error: Cliente no encontrado con el documento proporcionado.";
+                    return "Error: Cliente no encontrado con el ID proporcionado.";
                 }
 
                 NatilleraDB.Clientes.Remove(cl);
@@ -103,6 +101,8 @@ namespace ProyectNatillera.Clases
                 return "Error al eliminar el cliente: " + ex.Message;
             }
         }
+
+        // Not Implemted 
 
         public List<Cliente> ConsultarPorEstado(bool estado)
         {
@@ -130,11 +130,11 @@ namespace ProyectNatillera.Clases
             try
             {
 
-                Cliente cl = ConsultarXDocumento(documentoCliente);
+                Cliente cl = ConsultarXId(documentoCliente);
 
                 if (cl == null)
                 {
-                    return "Error: Cliente no encontrado con el documento proporcionado.";
+                    return "Error: Cliente no encontrado con el ID proporcionado.";
                 }
 
                 cl.Activo = nuevoEstado;

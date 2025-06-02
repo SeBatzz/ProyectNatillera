@@ -14,11 +14,11 @@ namespace ProyectNatillera.Controllers
     {
 
         [HttpGet]
-        [Route("ConsultarXDocumento")]
-        public Cliente ConsultarXDocumento(string Documento)
+        [Route("ConsultarXId")]
+        public Cliente ConsultarXId(string Id)
         {
             ClsCliente cliente = new ClsCliente();
-            return cliente.ConsultarXDocumento(Documento);
+            return cliente.ConsultarXId(Id);
         }
 
         [HttpGet]
@@ -37,9 +37,9 @@ namespace ProyectNatillera.Controllers
             {
                 return "Error: Los datos del cliente son nulos.";
             }
-            ClsCliente nuevoCliente = new ClsCliente();
-            nuevoCliente.cliente = cli;
-            return nuevoCliente.Insertar();
+            ClsCliente cliente = new ClsCliente();
+            cliente.cliente = cli;
+            return cliente.Insertar();
         }
         
         [HttpPut]
@@ -50,20 +50,20 @@ namespace ProyectNatillera.Controllers
             {
                 return "Error: Los datos del cliente son nulos.";
             }
-            ClsCliente clienteAActualizar = new ClsCliente();
-            clienteAActualizar.cliente = cli;
-            return clienteAActualizar.Actualizar();
+            ClsCliente cliente = new ClsCliente();
+            cliente.cliente = cli;
+            return cliente.Actualizar();
         }
 
         [HttpDelete]
-        [Route("Eliminar")] 
-        public string Eliminar(string documento)
+        [Route("EliminarXId")] 
+        public string EliminarXId(string Id)
         {
             ClsCliente cliente = new ClsCliente();
-            return cliente.EliminarPorDocumento(documento);
+            return cliente.EliminarXId(Id);
         }
 
-        //  Posibles funcionalidades adicionales 
+        // Not Implemted 
 
      
 
