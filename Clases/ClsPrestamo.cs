@@ -7,7 +7,7 @@ using System.Web;
 
 namespace ProyectNatillera.Clases
 {
-    public class ClsPrestamos
+    public class ClsPrestamo
     {
 
         public NatilleraDBEntities NatilleraDB = new NatilleraDBEntities();
@@ -61,7 +61,7 @@ namespace ProyectNatillera.Clases
 
             if (Pt == null)
             {
-                return "Error: El ID del Prestamo no es válido o el cliente no existe.";
+                return "Error: El ID del Prestamo no es válido o no existe.";
             }
 
             try
@@ -78,12 +78,12 @@ namespace ProyectNatillera.Clases
             }
         }
 
-        public string EliminarXId(int CodigoPrestamo)
+        public string EliminarXId(int Id)
         {
             try
             {
 
-                Prestamo Pt = ConsultarXId(CodigoPrestamo);
+                Prestamo Pt = ConsultarXId(Id);
 
 
                 if (Pt == null)

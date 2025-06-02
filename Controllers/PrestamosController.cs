@@ -16,7 +16,7 @@ namespace ProyectNatillera.Controllers
         [Route("ConsultarXId")]
         public Prestamo ConsultarXId(int Id)
         {
-            ClsPrestamos prestamo = new ClsPrestamos();
+            ClsPrestamo prestamo = new ClsPrestamo();
             return prestamo.ConsultarXId(Id);
         }
 
@@ -24,7 +24,7 @@ namespace ProyectNatillera.Controllers
         [Route("ConsultarTodos")]
         public List<Prestamo> ConsultarTodos()
         {
-            ClsPrestamos prestamo = new ClsPrestamos();
+            ClsPrestamo prestamo = new ClsPrestamo();
             return prestamo.ConsultarTodos();
         }
 
@@ -36,7 +36,7 @@ namespace ProyectNatillera.Controllers
             {
                 return "Error: Los datos del Prestamo son nulos.";
             }
-            ClsPrestamos prestamo = new ClsPrestamos();
+            ClsPrestamo prestamo = new ClsPrestamo();
             prestamo.prestamo = Pt;
             return prestamo.Insertar();
         }
@@ -49,7 +49,7 @@ namespace ProyectNatillera.Controllers
             {
                 return "Error: Los datos del Prestamo son nulos.";
             }
-            ClsPrestamos prestamo = new ClsPrestamos();
+            ClsPrestamo prestamo = new ClsPrestamo();
             prestamo.prestamo = Pt;
             return prestamo.Actualizar();
         }
@@ -58,7 +58,7 @@ namespace ProyectNatillera.Controllers
         [Route("EliminarXId")]
         public string EliminarXId(int Id)
         {
-            ClsPrestamos prestamo = new ClsPrestamos();
+            ClsPrestamo prestamo = new ClsPrestamo();
             return prestamo.EliminarXId(Id);
         }
 

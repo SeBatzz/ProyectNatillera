@@ -60,7 +60,7 @@ namespace ProyectNatillera.Clases
 
             if (cl == null)
             {
-                return "Error: El ID del Prestamo no es válido o el cliente no existe.";
+                return "Error: El ID del Prestamo no es válido o no existe.";
             }
 
             try
@@ -77,12 +77,12 @@ namespace ProyectNatillera.Clases
             }
         }
 
-        public string EliminarXId(string documento)
+        public string EliminarXId(string Id)
         {
             try
             {
 
-                Cliente cl = ConsultarXId(documento);
+                Cliente cl = ConsultarXId(Id);
 
 
                 if (cl == null)
