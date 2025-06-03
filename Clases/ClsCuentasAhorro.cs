@@ -14,9 +14,10 @@ namespace ProyectNatillera.Clases
         public CuentasAhorro cuentaAhorro { get; set; }
 
         // Consultar por ID
-        public CuentasAhorro ConsultarXId(int codigoCuenta)
+        public CuentasAhorro ConsultarXId(int Id)
         {
-            return NatilleraDB.CuentasAhorroes.FirstOrDefault(c => c.CodigoCuenta == codigoCuenta);
+            CuentasAhorro Ca = NatilleraDB.CuentasAhorroes.FirstOrDefault(x => x.CodigoCuenta == Id);
+            return Ca;
         }
 
         // Consultar todas las cuentas
@@ -54,7 +55,7 @@ namespace ProyectNatillera.Clases
                 return "Error: No se proporcionó una cuenta para actualizar.";
             }
 
-            var cuentaExistente = ConsultarXId(cuentaAhorro.CodigoCuenta);
+            CuentasAhorro cuentaExistente = ConsultarXId(cuentaAhorro.CodigoCuenta);
 
             if (cuentaExistente == null)
             {

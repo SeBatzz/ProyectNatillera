@@ -170,6 +170,7 @@
     <Compile Include="Clases\ClsPrestamo.cs" />
     <Compile Include="Clases\ClsTipoDocumentoLegal.cs" />
     <Compile Include="Clases\ClsTiposCuentaAhorro.cs" />
+    <Compile Include="Clases\ClsTipoTransaccion.cs" />
     <Compile Include="Clases\ClsTransaccionesAhorro.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CuentasAhorrosController.cs" />
@@ -177,7 +178,10 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PagoPrestamosController.cs" />
     <Compile Include="Controllers\PrestamosController.cs" />
+    <Compile Include="Controllers\TiposCuentasAhorrosController.cs" />
     <Compile Include="Controllers\TiposDocumentosLegalesController.cs" />
+    <Compile Include="Controllers\TiposTransaccionesController.cs" />
+    <Compile Include="Controllers\TransaccionesAhorrosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -362,7 +366,10 @@
     <Folder Include="Views\CuentasAhorros\" />
     <Folder Include="Views\DocumentosClientes\" />
     <Folder Include="Views\PagoPrestamos\" />
+    <Folder Include="Views\TiposCuentasAhorros\" />
     <Folder Include="Views\TiposDocumentosLegales\" />
+    <Folder Include="Views\TiposTransacciones\" />
+    <Folder Include="Views\TransaccionesAhorros\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Scripts\bootstrap.min.js.map" />

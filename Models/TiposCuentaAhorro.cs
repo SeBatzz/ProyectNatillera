@@ -9,6 +9,7 @@
 
 namespace ProyectNatillera.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -25,6 +26,7 @@ namespace ProyectNatillera.Models
         public bool Activo { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<CuentasAhorro> CuentasAhorroes { get; set; }
     }
 }
