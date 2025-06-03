@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity.Migrations;
 using System.Linq;
 using System.Web;
+using ProyectNatillera.Models;
 
 namespace ProyectNatillera.Clases
 {
@@ -96,7 +98,7 @@ namespace ProyectNatillera.Clases
         }
 
         // Consultar por estado (activa/inactiva)
-        public List<CuentasAhorro> ConsultarPorEstado(bool estado)
+        public List<CuentasAhorro> ConsultarPorEstado(string estado)
         {
             return NatilleraDB.CuentasAhorroes.Where(c => c.Estado == estado).OrderBy(c => c.FechaApertura).ToList();
         }

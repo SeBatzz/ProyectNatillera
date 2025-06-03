@@ -170,6 +170,7 @@
     <Compile Include="Clases\ClsPrestamo.cs" />
     <Compile Include="Clases\ClsTipoDocumentoLegal.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\CuentasAhorrosController.cs" />
     <Compile Include="Controllers\DocumentosClientesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\PagoPrestamosController.cs" />
@@ -356,6 +357,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\CuentasAhorros\" />
     <Folder Include="Views\DocumentosClientes\" />
     <Folder Include="Views\PagoPrestamos\" />
     <Folder Include="Views\TiposDocumentosLegales\" />
