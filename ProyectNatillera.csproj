@@ -169,6 +169,7 @@
     <Compile Include="Clases\ClsPagosPrestamo.cs" />
     <Compile Include="Clases\ClsPrestamo.cs" />
     <Compile Include="Clases\ClsTipoDocumentoLegal.cs" />
+    <Compile Include="Clases\ClsTransaccionesAhorro.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CuentasAhorrosController.cs" />
     <Compile Include="Controllers\DocumentosClientesController.cs" />
