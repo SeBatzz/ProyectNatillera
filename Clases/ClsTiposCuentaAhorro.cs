@@ -15,12 +15,12 @@ namespace ProyectNatillera.Clases
 
         public TiposCuentaAhorro ConsultarXId(int id)
         {
-            return NatilleraDB.TiposCuentaAhorro.FirstOrDefault(x => x.CodigoTipoCuenta == id);
+            return NatilleraDB.TiposCuentaAhorroes.FirstOrDefault(x => x.CodigoTipoCuenta == id);
         }
 
         public List<TiposCuentaAhorro> ConsultarTodos()
         {
-            return NatilleraDB.TiposCuentaAhorro.OrderBy(x => x.NombreTipo).ToList();
+            return NatilleraDB.TiposCuentaAhorroes.OrderBy(x => x.NombreTipo).ToList();
         }
 
         public string Insertar()
@@ -30,7 +30,7 @@ namespace ProyectNatillera.Clases
                 if (tipoCuenta == null)
                     return "Error: No se proporcionó un objeto TipoCuentaAhorro para insertar.";
 
-                NatilleraDB.TiposCuentaAhorro.Add(tipoCuenta);
+                NatilleraDB.TiposCuentaAhorroes.Add(tipoCuenta);
                 NatilleraDB.SaveChanges();
 
                 return "Tipo de cuenta de ahorro insertado correctamente.";
@@ -53,7 +53,7 @@ namespace ProyectNatillera.Clases
                 if (existente == null)
                     return "Error: El tipo de cuenta no existe.";
 
-                NatilleraDB.TiposCuentaAhorro.AddOrUpdate(tipoCuenta);
+                NatilleraDB.TiposCuentaAhorroes.AddOrUpdate(tipoCuenta);
                 NatilleraDB.SaveChanges();
 
                 return "Tipo de cuenta de ahorro actualizado correctamente.";
@@ -73,7 +73,7 @@ namespace ProyectNatillera.Clases
                 if (tipo == null)
                     return "Error: Tipo de cuenta no encontrado.";
 
-                NatilleraDB.TiposCuentaAhorro.Remove(tipo);
+                NatilleraDB.TiposCuentaAhorroes.Remove(tipo);
                 NatilleraDB.SaveChanges();
 
                 return "Tipo de cuenta eliminado correctamente.";
@@ -86,7 +86,7 @@ namespace ProyectNatillera.Clases
 
         public List<TiposCuentaAhorro> ConsultarPorEstado(bool estado)
         {
-            return NatilleraDB.TiposCuentaAhorro.Where(x => x.Activo == estado).OrderBy(x => x.NombreTipo).ToList();
+            return NatilleraDB.TiposCuentaAhorroes.Where(x => x.Activo == estado).OrderBy(x => x.NombreTipo).ToList();
         }
     }
 }

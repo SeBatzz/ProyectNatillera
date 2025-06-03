@@ -14,12 +14,12 @@ namespace ProyectNatillera.Clases
 
         public TransaccionesAhorro ConsultarXId(int id)
         {
-            return NatilleraDB.TransaccionesAhorro.FirstOrDefault(x => x.CodigoTransaccion == id);
+            return NatilleraDB.TransaccionesAhorroes.FirstOrDefault(x => x.CodigoTransaccion == id);
         }
 
         public List<TransaccionesAhorro> ConsultarTodos()
         {
-            return NatilleraDB.TransaccionesAhorro.OrderBy(x => x.FechaTransaccion).ToList();
+            return NatilleraDB.TransaccionesAhorroes.OrderBy(x => x.FechaTransaccion).ToList();
         }
 
         public string Insertar()
@@ -29,7 +29,7 @@ namespace ProyectNatillera.Clases
                 if (transaccion == null)
                     return "Error: No se proporcionó una transacción para insertar.";
 
-                NatilleraDB.TransaccionesAhorro.Add(transaccion);
+                NatilleraDB.TransaccionesAhorroes.Add(transaccion);
                 NatilleraDB.SaveChanges();
                 return "Transacción insertada correctamente.";
             }
@@ -51,7 +51,7 @@ namespace ProyectNatillera.Clases
                 if (tr == null)
                     return "Error: La transacción no existe.";
 
-                NatilleraDB.TransaccionesAhorro.AddOrUpdate(transaccion);
+                NatilleraDB.TransaccionesAhorroes.AddOrUpdate(transaccion);
                 NatilleraDB.SaveChanges();
                 return "Transacción actualizada correctamente.";
             }
@@ -70,7 +70,7 @@ namespace ProyectNatillera.Clases
                 if (tr == null)
                     return "Error: No se encontró la transacción con el ID proporcionado.";
 
-                NatilleraDB.TransaccionesAhorro.Remove(tr);
+                NatilleraDB.TransaccionesAhorroes.Remove(tr);
                 NatilleraDB.SaveChanges();
 
                 return "Transacción eliminada correctamente.";
@@ -84,7 +84,7 @@ namespace ProyectNatillera.Clases
         //consultar transacciones por cuenta
         public List<TransaccionesAhorro> ConsultarPorCuenta(int codigoCuenta)
         {
-            return NatilleraDB.TransaccionesAhorro.Where(x => x.CodigoCuenta == codigoCuenta).OrderByDescending(x => x.FechaTransaccion).ToList();
+            return NatilleraDB.TransaccionesAhorroes.Where(x => x.CodigoCuenta == codigoCuenta).OrderByDescending(x => x.FechaTransaccion).ToList();
         }
     }
 }
