@@ -164,13 +164,17 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Clases\ClsAlquileresLugar.cs" />
+    <Compile Include="Clases\ClsCiudades.cs" />
     <Compile Include="Clases\ClsCliente.cs" />
+    <Compile Include="Clases\ClsContactosProveedor.cs" />
     <Compile Include="Clases\ClsCuentasAhorro.cs" />
+    <Compile Include="Clases\ClsDepartamento.cs" />
     <Compile Include="Clases\ClsDocumentosCliente.cs" />
     <Compile Include="Clases\ClsEvento.cs" />
     <Compile Include="Clases\ClsLugar.cs" />
     <Compile Include="Clases\ClsPagosPrestamo.cs" />
     <Compile Include="Clases\ClsPais.cs" />
+    <Compile Include="Clases\ClsParticipacionEvento.cs" />
     <Compile Include="Clases\ClsPrestamo.cs" />
     <Compile Include="Clases\ClsProveedor.cs" />
     <Compile Include="Clases\ClsTipoDocumentoLegal.cs" />
@@ -188,6 +192,7 @@
     <Compile Include="Controllers\LugaresController.cs" />
     <Compile Include="Controllers\PagoPrestamosController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
+    <Compile Include="Controllers\ParticipacionEventoController.cs" />
     <Compile Include="Controllers\PrestamosController.cs" />
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\TiposCuentasAhorrosController.cs" />
