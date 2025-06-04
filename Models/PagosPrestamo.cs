@@ -9,7 +9,6 @@
 
 namespace ProyectNatillera.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -23,8 +22,7 @@ namespace ProyectNatillera.Models
         public Nullable<decimal> InteresesPagados { get; set; }
         public Nullable<decimal> MultasPagadas { get; set; }
         public Nullable<decimal> SaldoPendiente { get; set; }
-
-        [JsonIgnore]
+    
         public virtual Prestamo Prestamo { get; set; }
     }
 }

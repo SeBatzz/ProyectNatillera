@@ -168,9 +168,13 @@
     <Compile Include="Clases\ClsCliente.cs" />
     <Compile Include="Clases\ClsContactosProveedor.cs" />
     <Compile Include="Clases\ClsCuentasAhorro.cs" />
+    <Compile Include="Clases\ClsDepartamento.cs" />
     <Compile Include="Clases\ClsDocumentosCliente.cs" />
     <Compile Include="Clases\ClsEvento.cs" />
+    <Compile Include="Clases\ClsGastosEvento.cs" />
+    <Compile Include="Clases\ClsLiquidaciones.cs" />
     <Compile Include="Clases\ClsLugar.cs" />
+    <Compile Include="Clases\ClsMetodosPago.cs" />
     <Compile Include="Clases\ClsPagosPrestamo.cs" />
     <Compile Include="Clases\ClsPais.cs" />
     <Compile Include="Clases\ClsParticipacionEvento.cs" />
@@ -182,9 +186,14 @@
     <Compile Include="Clases\ClsTipoTransaccion.cs" />
     <Compile Include="Clases\ClsTransaccionesAhorro.cs" />
     <Compile Include="Clases\ClsEventosProveedores.cs" />
+    <Compile Include="Controllers\AlquileresLugaresController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\ContactosProveedoresController.cs" />
     <Compile Include="Controllers\CuentasAhorrosController.cs" />
+    <Compile Include="Controllers\DepartamentosController.cs" />
     <Compile Include="Controllers\DocumentosClientesController.cs" />
+    <Compile Include="Controllers\EventosController.cs" />
+    <Compile Include="Controllers\EventosProveedoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LugaresController.cs" />
     <Compile Include="Controllers\PagoPrestamosController.cs" />
@@ -378,8 +387,12 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\AlquileresLugares\" />
+    <Folder Include="Views\ContactosProveedores\" />
     <Folder Include="Views\CuentasAhorros\" />
+    <Folder Include="Views\Departamentos\" />
     <Folder Include="Views\DocumentosClientes\" />
+    <Folder Include="Views\EventosProveedores\" />
     <Folder Include="Views\Eventos\" />
     <Folder Include="Views\Evento\" />
     <Folder Include="Views\PagoPrestamos\" />
