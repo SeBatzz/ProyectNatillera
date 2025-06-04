@@ -169,6 +169,7 @@
     <Compile Include="Clases\ClsEvento.cs" />
     <Compile Include="Clases\ClsLugar.cs" />
     <Compile Include="Clases\ClsPagosPrestamo.cs" />
+    <Compile Include="Clases\ClsPais.cs" />
     <Compile Include="Clases\ClsPrestamo.cs" />
     <Compile Include="Clases\ClsProveedor.cs" />
     <Compile Include="Clases\ClsTipoDocumentoLegal.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LugaresController.cs" />
     <Compile Include="Controllers\PagoPrestamosController.cs" />
+    <Compile Include="Controllers\PaisController.cs" />
     <Compile Include="Controllers\PrestamosController.cs" />
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\TiposCuentasAhorrosController.cs" />
