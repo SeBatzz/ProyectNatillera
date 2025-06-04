@@ -171,6 +171,7 @@
     <Compile Include="Clases\ClsLugar.cs" />
     <Compile Include="Clases\ClsPagosPrestamo.cs" />
     <Compile Include="Clases\ClsPais.cs" />
+    <Compile Include="Clases\ClsParticipacionEvento.cs" />
     <Compile Include="Clases\ClsPrestamo.cs" />
     <Compile Include="Clases\ClsProveedor.cs" />
     <Compile Include="Clases\ClsTipoDocumentoLegal.cs" />
