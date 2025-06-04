@@ -94,15 +94,15 @@ namespace ProyectNatillera.Clases
             try
             {
 
-                EventosProveedore cl = ConsultarXId(Id);
+                EventosProveedore prv = ConsultarXId(Id);
 
 
-                if (cl == null)
+                if (prv == null)
                 {
                     return "Error: Evento no encontrado con el ID proporcionado.";
                 }
 
-                NatilleraDB.Eventos.Remove(cl);
+                NatilleraDB.EventosProveedores.Remove(prv);
 
                 NatilleraDB.SaveChanges();
 
