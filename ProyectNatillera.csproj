@@ -175,6 +175,7 @@
     <Compile Include="Clases\ClsTiposCuentaAhorro.cs" />
     <Compile Include="Clases\ClsTipoTransaccion.cs" />
     <Compile Include="Clases\ClsTransaccionesAhorro.cs" />
+    <Compile Include="Clases\EventosProveedores.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CuentasAhorrosController.cs" />
     <Compile Include="Controllers\DocumentosClientesController.cs" />
@@ -367,9 +368,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Data\" />
     <Folder Include="Views\CuentasAhorros\" />
     <Folder Include="Views\DocumentosClientes\" />
+    <Folder Include="Views\Eventos\" />
+    <Folder Include="Views\Evento\" />
     <Folder Include="Views\PagoPrestamos\" />
+    <Folder Include="Views\Prueba\" />
     <Folder Include="Views\TiposCuentasAhorros\" />
     <Folder Include="Views\TiposDocumentosLegales\" />
     <Folder Include="Views\TiposTransacciones\" />
