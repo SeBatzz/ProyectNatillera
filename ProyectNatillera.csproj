@@ -182,6 +182,7 @@
     <Compile Include="Controllers\LugaresController.cs" />
     <Compile Include="Controllers\PagoPrestamosController.cs" />
     <Compile Include="Controllers\PrestamosController.cs" />
+    <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\TiposCuentasAhorrosController.cs" />
     <Compile Include="Controllers\TiposDocumentosLegalesController.cs" />
     <Compile Include="Controllers\TiposTransaccionesController.cs" />
