@@ -166,6 +166,7 @@
     <Compile Include="Clases\ClsAlquileresLugar.cs" />
     <Compile Include="Clases\ClsCiudades.cs" />
     <Compile Include="Clases\ClsCliente.cs" />
+    <Compile Include="Clases\ClsContactosProveedor.cs" />
     <Compile Include="Clases\ClsCuentasAhorro.cs" />
     <Compile Include="Clases\ClsDocumentosCliente.cs" />
     <Compile Include="Clases\ClsEvento.cs" />
