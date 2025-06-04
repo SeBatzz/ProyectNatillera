@@ -9,7 +9,6 @@
 
 namespace ProyectNatillera.Models
 {
-    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -22,10 +21,8 @@ namespace ProyectNatillera.Models
         public System.DateTime FechaTransaccion { get; set; }
         public Nullable<decimal> SaldoAnterior { get; set; }
         public Nullable<decimal> SaldoPosterior { get; set; }
-
-        [JsonIgnore]
+    
         public virtual CuentasAhorro CuentasAhorro { get; set; }
-        [JsonIgnore]
         public virtual TiposTransaccion TiposTransaccion { get; set; }
     }
 }
