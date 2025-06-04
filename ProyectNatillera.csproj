@@ -187,6 +187,7 @@
     <Compile Include="Clases\ClsTransaccionesAhorro.cs" />
     <Compile Include="Clases\ClsEventosProveedores.cs" />
     <Compile Include="Controllers\AlquileresLugaresController.cs" />
+    <Compile Include="Controllers\CiudadesController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\ContactosProveedoresController.cs" />
     <Compile Include="Controllers\CuentasAhorrosController.cs" />
@@ -194,8 +195,11 @@
     <Compile Include="Controllers\DocumentosClientesController.cs" />
     <Compile Include="Controllers\EventosController.cs" />
     <Compile Include="Controllers\EventosProveedoresController.cs" />
+    <Compile Include="Controllers\GastosEventosController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LiquidacionesController.cs" />
     <Compile Include="Controllers\LugaresController.cs" />
+    <Compile Include="Controllers\MetodosPagosController.cs" />
     <Compile Include="Controllers\PagoPrestamosController.cs" />
     <Compile Include="Controllers\PaisController.cs" />
     <Compile Include="Controllers\ParticipacionEventoController.cs" />
@@ -203,6 +207,7 @@
     <Compile Include="Controllers\ProveedorController.cs" />
     <Compile Include="Controllers\TiposCuentasAhorrosController.cs" />
     <Compile Include="Controllers\TiposDocumentosLegalesController.cs" />
+    <Compile Include="Controllers\TiposServiciosController.cs" />
     <Compile Include="Controllers\TiposTransaccionesController.cs" />
     <Compile Include="Controllers\TransaccionesAhorrosController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
@@ -388,6 +393,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
     <Folder Include="Views\AlquileresLugares\" />
+    <Folder Include="Views\Ciudades\" />
     <Folder Include="Views\ContactosProveedores\" />
     <Folder Include="Views\CuentasAhorros\" />
     <Folder Include="Views\Departamentos\" />
@@ -395,10 +401,14 @@
     <Folder Include="Views\EventosProveedores\" />
     <Folder Include="Views\Eventos\" />
     <Folder Include="Views\Evento\" />
+    <Folder Include="Views\GastosEventos\" />
+    <Folder Include="Views\Liquidaciones\" />
+    <Folder Include="Views\MetodosPagos\" />
     <Folder Include="Views\PagoPrestamos\" />
     <Folder Include="Views\Prueba\" />
     <Folder Include="Views\TiposCuentasAhorros\" />
     <Folder Include="Views\TiposDocumentosLegales\" />
+    <Folder Include="Views\TiposServicios\" />
     <Folder Include="Views\TiposTransacciones\" />
     <Folder Include="Views\TransaccionesAhorros\" />
   </ItemGroup>
