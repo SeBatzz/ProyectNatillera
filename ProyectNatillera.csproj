@@ -178,6 +178,7 @@
     <Compile Include="Clases\ClsProveedor.cs" />
     <Compile Include="Clases\ClsTipoDocumentoLegal.cs" />
     <Compile Include="Clases\ClsTiposCuentaAhorro.cs" />
+    <Compile Include="Clases\ClsTiposServicio.cs" />
     <Compile Include="Clases\ClsTipoTransaccion.cs" />
     <Compile Include="Clases\ClsTransaccionesAhorro.cs" />
     <Compile Include="Clases\ClsEventosProveedores.cs" />
