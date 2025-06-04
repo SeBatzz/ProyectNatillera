@@ -9,18 +9,17 @@ namespace ProyectNatillera.Clases
     public class ClsProveedor
     {
         public NatilleraDBEntities NatilleraDB = new NatilleraDBEntities();
-        public Proveedor proveedor { get; set; }
+        public Proveedore proveedor { get; set; }
 
-        public Proveedor ConsultarXId(int id)
+        public Proveedore ConsultarXId(int id)
         {
             return NatilleraDB.Proveedores.FirstOrDefault(x => x.idProveedor == id);
+
         }
 
-        public List<Proveedor> ConsultarTodos()
+        public List<Proveedore> ConsultarTodos()
         {
-            return NatilleraDB.Proveedores
-                .OrderBy(x => x.NombreProveedor)
-                .ToList();
+            return NatilleraDB.Proveedores.OrderBy(x => x.NombreProveedor).ToList();
         }
 
         public string Insertar()
@@ -50,7 +49,7 @@ namespace ProyectNatillera.Clases
                 return "Error: No se proporcionó un objeto Proveedor para actualizar.";
             }
 
-            Proveedor pr = ConsultarXId(proveedor.idProveedor);
+            Proveedore pr = ConsultarXId(proveedor.idProveedor);
 
             if (pr == null)
             {
@@ -74,7 +73,7 @@ namespace ProyectNatillera.Clases
         {
             try
             {
-                Proveedor pr = ConsultarXId(id);
+                Proveedore pr = ConsultarXId(id);
 
                 if (pr == null)
                 {
