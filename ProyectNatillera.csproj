@@ -170,6 +170,7 @@
     <Compile Include="Clases\ClsLugar.cs" />
     <Compile Include="Clases\ClsPagosPrestamo.cs" />
     <Compile Include="Clases\ClsPrestamo.cs" />
+    <Compile Include="Clases\ClsProveedor.cs" />
     <Compile Include="Clases\ClsTipoDocumentoLegal.cs" />
     <Compile Include="Clases\ClsTiposCuentaAhorro.cs" />
     <Compile Include="Clases\ClsTipoTransaccion.cs" />
