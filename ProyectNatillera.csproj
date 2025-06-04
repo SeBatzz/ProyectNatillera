@@ -175,7 +175,7 @@
     <Compile Include="Clases\ClsTiposCuentaAhorro.cs" />
     <Compile Include="Clases\ClsTipoTransaccion.cs" />
     <Compile Include="Clases\ClsTransaccionesAhorro.cs" />
-    <Compile Include="Clases\EventosProveedores.cs" />
+    <Compile Include="Clases\ClsEventosProveedores.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CuentasAhorrosController.cs" />
     <Compile Include="Controllers\DocumentosClientesController.cs" />
