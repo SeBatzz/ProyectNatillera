@@ -9,16 +9,16 @@ namespace ProyectNatillera.Clases
     public class ClsTiposServicio
     {
         public NatilleraDBEntities NatilleraDB = new NatilleraDBEntities();
-        public TiposServicio tipoServicio { get; set; }
+        public TiposServicioProveedor tipoServicio { get; set; }
 
-        public TiposServicio ConsultarXId(int id)
+        public TiposServicioProveedor ConsultarXId(int id)
         {
-            return NatilleraDB.TiposServicio.FirstOrDefault(x => x.CodigoTipoServicio == id);
+            return NatilleraDB.TiposServicioProveedors.FirstOrDefault(x => x.CodigoTipoServicio == id);
         }
 
-        public List<TiposServicio> ConsultarTodos()
+        public List<TiposServicioProveedor> ConsultarTodos()
         {
-            return NatilleraDB.TiposServicio.OrderBy(x => x.CodigoTipoServicio).ToList();
+            return NatilleraDB.TiposServicioProveedors.OrderBy(x => x.CodigoTipoServicio).ToList();
         }
 
         public string Insertar()
@@ -30,7 +30,7 @@ namespace ProyectNatillera.Clases
                     return "Error: No se proporcionó un  Tipo de Servicio para insertar.";
                 }
 
-                NatilleraDB.TiposServicio.Add(tipoServicio);
+                NatilleraDB.TiposServicioProveedors.Add(tipoServicio);
                 NatilleraDB.SaveChanges();
 
                 return "Tipo de servicio insertado correctamente.";
@@ -48,7 +48,7 @@ namespace ProyectNatillera.Clases
                 return "Error: No se proporcionó un  Tipo de Servicio para actualizar.";
             }
 
-            TiposServicio ts = ConsultarXId(tipoServicio.CodigoTipoServicio);
+            TiposServicioProveedor ts = ConsultarXId(tipoServicio.CodigoTipoServicio);
 
             if (ts == null)
             {
@@ -57,7 +57,7 @@ namespace ProyectNatillera.Clases
 
             try
             {
-                NatilleraDB.TiposServicio.AddOrUpdate(tipoServicio);
+                NatilleraDB.TiposServicioProveedors.AddOrUpdate(tipoServicio);
                 NatilleraDB.SaveChanges();
 
                 return "Tipo de servicio actualizado correctamente.";
@@ -72,14 +72,14 @@ namespace ProyectNatillera.Clases
         {
             try
             {
-                TiposServicio ts = ConsultarXId(id);
+                TiposServicioProveedor ts = ConsultarXId(id);
 
                 if (ts == null)
                 {
                     return "Error: Tipo de servicio no encontrado con el ID proporcionado.";
                 }
 
-                NatilleraDB.TiposServicio.Remove(ts);
+                NatilleraDB.TiposServicioProveedors.Remove(ts);
                 NatilleraDB.SaveChanges();
 
                 return "Tipo de servicio eliminado correctamente.";

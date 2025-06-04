@@ -9,6 +9,7 @@
 
 namespace ProyectNatillera.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -20,7 +21,8 @@ namespace ProyectNatillera.Models
         public string Apellidos { get; set; }
         public string Telefono { get; set; }
         public string Email { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Proveedore Proveedore { get; set; }
     }
 }

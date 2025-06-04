@@ -9,11 +9,11 @@ using System.Web.Http;
 
 namespace ProyectNatillera.Controllers
 {
-    public class LugaresController : ApiController
-    {
+   
+   
         [RoutePrefix("api/Lugares")]
 
-        public class ClientesController : ApiController
+        public class LugaresController : ApiController
         {
 
             [HttpGet]
@@ -67,4 +67,3 @@ namespace ProyectNatillera.Controllers
             }
         }
     }
-}

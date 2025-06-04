@@ -9,6 +9,7 @@
 
 namespace ProyectNatillera.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -20,8 +21,10 @@ namespace ProyectNatillera.Models
         public Nullable<decimal> CostoServicioEstimado { get; set; }
         public System.DateTime FechaContratacion { get; set; }
         public string EstadoContrato { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Evento Evento { get; set; }
+        [JsonIgnore]
         public virtual Proveedore Proveedore { get; set; }
     }
 }

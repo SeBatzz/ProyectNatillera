@@ -368,6 +368,7 @@
     <Content Include="Models\NatilleraDB.edmx.diagram">
       <DependentUpon>NatilleraDB.edmx</DependentUpon>
     </Content>
+    <None Include="Properties\PublishProfiles\site27778-WebDeploy.pubxml" />
     <None Include="Scripts\jquery-3.7.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.7.0.js" />
     <Content Include="Scripts\jquery-3.7.0.min.js" />

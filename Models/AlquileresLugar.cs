@@ -9,6 +9,7 @@
 
 namespace ProyectNatillera.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -21,8 +22,10 @@ namespace ProyectNatillera.Models
         public System.DateTime FechaFinAlquiler { get; set; }
         public decimal CostoTotalAlquiler { get; set; }
         public string EstadoAlquiler { get; set; }
-    
+
+        [JsonIgnore]    
         public virtual Lugare Lugare { get; set; }
+        [JsonIgnore]
         public virtual Evento Evento { get; set; }
     }
 }

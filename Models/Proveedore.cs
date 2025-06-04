@@ -9,6 +9,7 @@
 
 namespace ProyectNatillera.Models
 {
+    using Newtonsoft.Json;
     using System;
     using System.Collections.Generic;
     
@@ -31,14 +32,19 @@ namespace ProyectNatillera.Models
         public int CodigoTipoServicio { get; set; }
         public System.DateTime FechaRegistro { get; set; }
         public bool Activo { get; set; }
-    
+
+        [JsonIgnore]
         public virtual Ciudade Ciudade { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<ContactosProveedor> ContactosProveedors { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<EventosProveedore> EventosProveedores { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        [JsonIgnore]
         public virtual ICollection<GastosEvento> GastosEventoes { get; set; }
+        [JsonIgnore]
         public virtual TiposServicioProveedor TiposServicioProveedor { get; set; }
     }
 }

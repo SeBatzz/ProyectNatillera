@@ -9,7 +9,7 @@ using System.Web.Http;
 
 namespace ProyectNatillera.Controllers
 {
-    [RoutePrefix("api/Prestamos")]
+    [RoutePrefix("api/MetodosPagos")]
     public class MetodosPagosController : ApiController
     {
         [HttpGet]
