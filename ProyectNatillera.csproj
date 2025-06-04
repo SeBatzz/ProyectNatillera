@@ -184,7 +184,9 @@
     <Compile Include="Clases\ClsEventosProveedores.cs" />
     <Compile Include="Controllers\AlquileresLugaresController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
+    <Compile Include="Controllers\ContactosProveedoresController.cs" />
     <Compile Include="Controllers\CuentasAhorrosController.cs" />
+    <Compile Include="Controllers\DepartamentosController.cs" />
     <Compile Include="Controllers\DocumentosClientesController.cs" />
     <Compile Include="Controllers\EventosController.cs" />
     <Compile Include="Controllers\EventosProveedoresController.cs" />
@@ -382,7 +384,9 @@
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
     <Folder Include="Views\AlquileresLugares\" />
+    <Folder Include="Views\ContactosProveedores\" />
     <Folder Include="Views\CuentasAhorros\" />
+    <Folder Include="Views\Departamentos\" />
     <Folder Include="Views\DocumentosClientes\" />
     <Folder Include="Views\EventosProveedores\" />
     <Folder Include="Views\Eventos\" />
