@@ -1,33 +1,34 @@
-﻿using System;
+﻿using ProyectNatillera.Models;
+using System;
 using System.Collections.Generic;
 using System.Data.Entity.Migrations;
+using System.Diagnostics;
 using System.Linq;
 using System.Web;
-using ProyectNatillera.Models;
 
 namespace ProyectNatillera.Clases
 {
-    public class ClsEvento
+    public class EventosProveedores
     {
 
         public NatilleraDBEntities NatilleraDB = new NatilleraDBEntities();
-        public Evento evento { get; set; }
+        public EventosProveedore eventoProveedor { get; set; }
 
         //Consultar Evento por ID
 
-        public Evento ConsultarXId(int Id)
+        public EventosProveedore ConsultarXId(int Id)
         {
-            Evento Cl = NatilleraDB.Eventos.FirstOrDefault(x => x.CodigoEvento == Id);
+            EventosProveedore Cl = NatilleraDB.EventosProveedores.FirstOrDefault(x => x.CodigoRelacion == Id);
             return Cl;
         }
 
         //Consultar todos los Eventos 
 
-        public List<Evento> ConsultarTodos()   // Devulve una lista de Cliente
+        public List<EventosProveedore> ConsultarTodos()   // Devulve una lista de Cliente
         {
 
-            return NatilleraDB.Eventos
-                .OrderBy(x => x.FechaCreacion)
+            return NatilleraDB.EventosProveedores
+                .OrderBy(x => x.FechaContratacion)
                 .ToList();
         }
 
@@ -37,12 +38,12 @@ namespace ProyectNatillera.Clases
             try
             {
 
-                if (evento == null)
+                if (eventoProveedor == null)
                 {
                     return "Error: No se proporcionó un objeto evento para insertar.";
                 }
 
-                NatilleraDB.Eventos.Add(evento);
+                NatilleraDB.EventosProveedores.Add(eventoProveedor);
 
                 NatilleraDB.SaveChanges();
                 return "Evento insertado correctamente.";
@@ -59,12 +60,12 @@ namespace ProyectNatillera.Clases
         public string Actualizar()
         {
 
-            if (evento == null)
+            if (eventoProveedor == null)
             {
                 return "Error: No se proporcionó un objeto Evento para actualizar.";
             }
 
-            Evento cl = ConsultarXId(evento.CodigoEvento);
+            EventosProveedore cl = ConsultarXId(eventoProveedor.CodigoRelacion);
 
             if (cl == null)
             {
@@ -74,7 +75,7 @@ namespace ProyectNatillera.Clases
             try
             {
 
-                NatilleraDB.Eventos.AddOrUpdate(evento);
+                NatilleraDB.EventosProveedores.AddOrUpdate(eventoProveedor);
 
                 NatilleraDB.SaveChanges();
                 return "Evento actualizado correctamente.";
@@ -93,7 +94,7 @@ namespace ProyectNatillera.Clases
             try
             {
 
-                Evento cl = ConsultarXId(Id);
+                EventosProveedore cl = ConsultarXId(Id);
 
 
                 if (cl == null)
@@ -114,10 +115,11 @@ namespace ProyectNatillera.Clases
         }
         // Consultar por fechaEvento
 
-        public List<Evento> ConsultarPorFecha(DateTime fecha)
+        public List<EventosProveedore> ConsultarPorFecha(DateTime fecha)
         {
-            return NatilleraDB.Eventos.Where(e => e.FechaInicio == fecha.Date).ToList();
+            return NatilleraDB.EventosProveedores.Where(e => e.FechaContratacion == fecha.Date).ToList();
 
         }
+
     }
 }
