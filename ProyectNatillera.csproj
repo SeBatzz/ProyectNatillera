@@ -183,9 +183,12 @@
     <Compile Include="Clases\ClsTipoTransaccion.cs" />
     <Compile Include="Clases\ClsTransaccionesAhorro.cs" />
     <Compile Include="Clases\ClsEventosProveedores.cs" />
+    <Compile Include="Controllers\AlquileresLugaresController.cs" />
     <Compile Include="Controllers\ClientesController.cs" />
     <Compile Include="Controllers\CuentasAhorrosController.cs" />
     <Compile Include="Controllers\DocumentosClientesController.cs" />
+    <Compile Include="Controllers\EventosController.cs" />
+    <Compile Include="Controllers\EventosProveedoresController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\LugaresController.cs" />
     <Compile Include="Controllers\PagoPrestamosController.cs" />
@@ -379,8 +382,10 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Data\" />
+    <Folder Include="Views\AlquileresLugares\" />
     <Folder Include="Views\CuentasAhorros\" />
     <Folder Include="Views\DocumentosClientes\" />
+    <Folder Include="Views\EventosProveedores\" />
     <Folder Include="Views\Eventos\" />
     <Folder Include="Views\Evento\" />
     <Folder Include="Views\PagoPrestamos\" />
